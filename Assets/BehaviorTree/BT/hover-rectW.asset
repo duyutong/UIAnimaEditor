@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e72bb62fccd446148ad9fc3191eea09a, type: 3}
+  m_Name: hover-rectW
+  m_EditorClassIdentifier: 
+  nodeDatas:
+  - nodeName: Reset
+    guid: f52ac185-4621-4c05-b5db-c1e6340c9c9a
+    lastNodes:
+    - 5d8be5fe-077b-4127-92e5-5af552ca3df7
+    output: []
+    nodePos: {x: 886, y: 256}
+    typeName: Deco_Reset
+    stateName: ResetState
+    stateParams: '{"hideFlags":0,"name":"","interruptTag":"","interruptible":false,"output":[],"exit":false,"state":0}'
+  - nodeName: Reset
+    guid: 0d5fdd60-3097-42a6-8103-c3481651f554
+    lastNodes:
+    - 39fcfc8f-7ff3-4bd7-b5a6-214bdfbb8d5b
+    output: []
+    nodePos: {x: 886, y: 107}
+    typeName: Deco_Reset
+    stateName: ResetState
+    stateParams: '{"hideFlags":0,"name":"","interruptTag":"","interruptible":false,"output":[],"exit":false,"state":0}'
+  - nodeName: UIHoverBranching
+    guid: b19d1d5a-97d1-4288-8bc7-3c15c62bae30
+    lastNodes: []
+    output:
+    - fromPortName: pointerEnter
+      toPortName: enter
+      nodeId: 39fcfc8f-7ff3-4bd7-b5a6-214bdfbb8d5b
+    - fromPortName: pointerExit
+      toPortName: enter
+      nodeId: 5d8be5fe-077b-4127-92e5-5af552ca3df7
+    nodePos: {x: 366, y: 157}
+    typeName: Deco_UIHoverBranching
+    stateName: UIHoverBranchingState
+    stateParams: '{"hideFlags":0,"name":"","interruptTag":"","interruptible":false,"output":[{"fromPortName":"pointerEnter","nodeId":"39fcfc8f-7ff3-4bd7-b5a6-214bdfbb8d5b","toPortName":"enter","value":null},{"fromPortName":"pointerExit","nodeId":"5d8be5fe-077b-4127-92e5-5af552ca3df7","toPortName":"enter","value":null}],"enter":false,"hover":false,"idel":true,"pointerEnter":false,"pointerExit":false,"state":0,"targetObj":{"localPath":"self","pathType":0,"scenePath":"","selfPath":"self","target":null},"uiCameraObj":{"localPath":"","pathType":1,"scenePath":"UICamera","selfPath":"self","target":null}}'
+  - nodeName: SetRectWidth
+    guid: 5d8be5fe-077b-4127-92e5-5af552ca3df7
+    lastNodes:
+    - b19d1d5a-97d1-4288-8bc7-3c15c62bae30
+    output:
+    - fromPortName: exit
+      toPortName: exit
+      nodeId: f52ac185-4621-4c05-b5db-c1e6340c9c9a
+    nodePos: {x: 639, y: 256}
+    typeName: Behav_SetRectWidth
+    stateName: SetRectWidthState
+    stateParams: '{"hideFlags":0,"name":"","interruptTag":"","interruptible":false,"output":[{"fromPortName":"exit","nodeId":"f52ac185-4621-4c05-b5db-c1e6340c9c9a","toPortName":"exit","value":null}],"animaCurve":{"keys":[{"inTangent":2,"inWeight":0,"outTangent":2,"outWeight":0,"tangentMode":0,"time":0,"value":700,"weightedMode":0},{"inTangent":-66.86266,"inWeight":0.333333343,"outTangent":-66.86266,"outWeight":0.323074549,"tangentMode":0,"time":0.109824687,"value":627.4945,"weightedMode":0},{"inTangent":4.144773,"inWeight":0.333333343,"outTangent":4.144773,"outWeight":0.6898986,"tangentMode":0,"time":0.14646557,"value":646.5365,"weightedMode":0},{"inTangent":18.5228767,"inWeight":0.333333343,"outTangent":18.5228767,"outWeight":0.7137624,"tangentMode":0,"time":0.173445478,"value":634.7906,"weightedMode":0},{"inTangent":0,"inWeight":0,"outTangent":0,"outWeight":0,"tangentMode":0,"time":0.2,"value":640,"weightedMode":0}],"postWrapMode":8,"preWrapMode":8},"enter":false,"exit":false,"state":0,"target":{"localPath":"self","pathType":0,"scenePath":"","selfPath":"self","target":null}}'
+  - nodeName: SetRectWidth
+    guid: 39fcfc8f-7ff3-4bd7-b5a6-214bdfbb8d5b
+    lastNodes:
+    - b19d1d5a-97d1-4288-8bc7-3c15c62bae30
+    output:
+    - fromPortName: exit
+      toPortName: exit
+      nodeId: 0d5fdd60-3097-42a6-8103-c3481651f554
+    nodePos: {x: 639, y: 107}
+    typeName: Behav_SetRectWidth
+    stateName: SetRectWidthState
+    stateParams: '{"hideFlags":0,"name":"","interruptTag":"","interruptible":false,"output":[{"fromPortName":"exit","nodeId":"0d5fdd60-3097-42a6-8103-c3481651f554","toPortName":"exit","value":null}],"animaCurve":{"keys":[{"inTangent":2,"inWeight":0,"outTangent":2,"outWeight":0,"tangentMode":0,"time":0,"value":640,"weightedMode":0},{"inTangent":51.5617065,"inWeight":0.333333343,"outTangent":51.5617065,"outWeight":0.333333343,"tangentMode":34,"time":0.1,"value":750,"weightedMode":0},{"inTangent":-333.106171,"inWeight":0.333333343,"outTangent":-333.106171,"outWeight":0.333333343,"tangentMode":34,"time":0.165502936,"value":684.70166,"weightedMode":0},{"inTangent":99.79803,"inWeight":0.333333343,"outTangent":99.79803,"outWeight":0.333333343,"tangentMode":34,"time":0.236813992,"value":708.2817,"weightedMode":0},{"inTangent":515.560547,"inWeight":0.4032142,"outTangent":515.560547,"outWeight":0.333333343,"tangentMode":0,"time":0.3,"value":700,"weightedMode":0}],"postWrapMode":8,"preWrapMode":8},"enter":false,"exit":false,"state":0,"target":{"localPath":"self","pathType":0,"scenePath":"","selfPath":"self","target":null}}'
+  edgeDatas:
+  - outPortNode: b19d1d5a-97d1-4288-8bc7-3c15c62bae30
+    intputPortNode: 39fcfc8f-7ff3-4bd7-b5a6-214bdfbb8d5b
+    outPortName: pointerEnter
+    intputPortName: enter
+  - outPortNode: b19d1d5a-97d1-4288-8bc7-3c15c62bae30
+    intputPortNode: 5d8be5fe-077b-4127-92e5-5af552ca3df7
+    outPortName: pointerExit
+    intputPortName: enter
+  - outPortNode: 39fcfc8f-7ff3-4bd7-b5a6-214bdfbb8d5b
+    intputPortNode: 0d5fdd60-3097-42a6-8103-c3481651f554
+    outPortName: exit
+    intputPortName: exit
+  - outPortNode: 5d8be5fe-077b-4127-92e5-5af552ca3df7
+    intputPortNode: f52ac185-4621-4c05-b5db-c1e6340c9c9a
+    outPortName: exit
+    intputPortName: exit

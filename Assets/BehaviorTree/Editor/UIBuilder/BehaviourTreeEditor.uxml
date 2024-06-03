@@ -1,0 +1,25 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style src="project://database/Assets/BehaviorTree/Editor/UIBuilder/BehaviourTreeEditor.uss?fileID=7433441132597879392&amp;guid=888b11796aac8c642a01a5894ca99601&amp;type=3#BehaviourTreeEditor" />
+    <GridBackView focusable="true" style="flex-grow: 1; min-width: auto; min-height: auto; position: absolute; width: 100%; height: 100%;">
+        <ui:Label text="BTEditor" display-tooltip-when-elided="true" class="window-title" />
+    </GridBackView>
+    <ui:VisualElement name="Main" style="flex-grow: 1; min-width: auto; min-height: auto;">
+        <uie:Toolbar style="height: 26px; transform-origin: center; position: relative; flex-shrink: 0; width: 100%;">
+            <ui:TextField picking-mode="Ignore" label="btName" value="filler text" name="nameTextField" class="toolbar-item" style="font-size: 14px; color: rgb(255, 255, 255); -unity-font: url(&apos;project://database/Library/unity%20default%20resources?fileID=10102&amp;guid=0000000000000000e000000000000000&amp;type=0#Arial&apos;); position: relative; width: 300px; flex-direction: row; justify-content: center;">
+                <ui:Button text="saveData" display-tooltip-when-elided="true" name="saveBtn" view-data-key="saveBtn" style="white-space: nowrap; width: 96px; background-color: rgb(53, 53, 53); color: rgb(255, 255, 255); font-size: 14px;" />
+            </ui:TextField>
+            <uie:ObjectField label="treeField" name="treeField" type="UnityEngine.ScriptableObject, UnityEngine.CoreModule" class="toolbar-item" style="width: 300px; font-size: 14px;">
+                <ui:Button text="loadData" display-tooltip-when-elided="true" name="loadBtn" view-data-key="saveBtn" style="white-space: nowrap; width: 96px; background-color: rgb(53, 53, 53); color: rgb(255, 255, 255);" />
+            </uie:ObjectField>
+        </uie:Toolbar>
+        <ui:VisualElement name="BTEditor" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: column; width: 100%; height: 100%; position: relative; min-width: auto; min-height: auto;">
+            <BehaviorTreeView focusable="true" style="flex-grow: 1; display: flex; width: 100%; height: 100%; min-width: 0; min-height: 0;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="Inspector" style="position: absolute; width: 300px; height: 50%; top: 50px; right: 3px; min-width: auto; min-height: auto; display: flex;">
+            <ui:Label text="Inspector" display-tooltip-when-elided="true" class="window-title" style="margin-left: 0; width: 80px; -unity-text-align: middle-center; height: auto; border-top-left-radius: 10px; border-top-right-radius: 10px; background-color: rgb(46, 46, 46); border-top-color: rgb(219, 219, 219); border-right-color: rgb(219, 219, 219); border-left-color: rgb(219, 219, 219); border-bottom-color: rgb(219, 219, 219); border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; max-height: none; min-height: auto;" />
+            <ui:ScrollView mode="VerticalAndHorizontal" style="width: auto; height: 252px; position: relative; align-items: stretch; top: auto; right: auto; flex-grow: 1; background-color: rgb(56, 56, 56); padding-left: 10px; padding-right: 10px; padding-top: 1px; padding-bottom: 1px; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0;">
+                <InspectorView class="unity-label" style="width: 400px; border-top-left-radius: 3px; border-bottom-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-left-color: rgb(226, 226, 226); border-right-color: rgb(226, 226, 226); border-top-color: rgb(226, 226, 226); border-bottom-color: rgb(226, 226, 226); border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; background-color: rgba(0, 0, 0, 0); flex-shrink: 0;" />
+            </ui:ScrollView>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
