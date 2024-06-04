@@ -1,4 +1,4 @@
-
+ï»¿
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -66,7 +66,7 @@ public class RandomBranchingState : BehaviorTreeBaseState
                 int _index = i;
                 bool isSelect = randomNumbers.Contains(_index);
 
-                if (!isSelect) nextStates[_index].state = EBTState.¿Õ;
+                if (!isSelect) nextStates[_index].state = EBTState.ç©º;
                 else nextStates[_index].OnRefresh();
             }
         }

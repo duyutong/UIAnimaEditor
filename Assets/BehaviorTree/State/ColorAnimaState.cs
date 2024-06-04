@@ -1,4 +1,4 @@
-
+ï»¿
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -89,7 +89,7 @@ public class ColorAnimaState : BehaviorTreeBaseState
     public override void OnUpdate()
     {
         if (targetRect == null) return;
-        if (state != EBTState.Ö´ÐÐÖÐ) return;
+        if (state != EBTState.æ‰§è¡Œä¸­) return;
 
         timeCount += Time.deltaTime;
         if (timeCount >= crossTime)

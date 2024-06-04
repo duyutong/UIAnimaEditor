@@ -1,4 +1,4 @@
-using Unity.VisualScripting;
+ï»¿using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -83,7 +83,7 @@ public class BehaviourTreeEditor : EditorWindow
     {
         BTContainer container = treeField.value as BTContainer;
         if (container == null) return;
-        if (container.nodeDatas.Count == 0) Debug.Log("Ã»ÓĞÊı¾İ£¡");
+        if (container.nodeDatas.Count == 0) Debug.Log("æ²¡æœ‰æ•°æ®ï¼");
         nameTextField.value = container.name;
         behaviorTreeView.LoadData(container);
     }

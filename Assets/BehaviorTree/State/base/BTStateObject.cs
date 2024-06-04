@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,10 +9,10 @@ public class BTStateObject : ScriptableObject
 
     public List<BTOutputInfo> output = new List<BTOutputInfo>();
     /// <summary>
-    /// Ë¢ĞÂÊä³ö
+    /// åˆ·æ–°è¾“å‡º
     /// </summary>
-    /// <param name="newInfo">ĞÂĞÅÏ¢</param>
-    /// <param name="isRemove">ÊÇ·ñÒÆ³ı</param>
+    /// <param name="newInfo">æ–°ä¿¡æ¯</param>
+    /// <param name="isRemove">æ˜¯å¦ç§»é™¤</param>
     public void RefreshOutput(BTOutputInfo newInfo, bool isRemove)
     {
         if (isRemove)

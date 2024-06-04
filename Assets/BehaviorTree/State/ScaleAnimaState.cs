@@ -1,4 +1,4 @@
-
+ï»¿
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -90,7 +90,7 @@ public class ScaleAnimaState : BehaviorTreeBaseState
     public override void OnUpdate()
     {
         if (runtime == null) return;
-        if (state != EBTState.Ö´ÐÐÖÐ) return;
+        if (state != EBTState.æ‰§è¡Œä¸­) return;
 
         timeCount += Time.deltaTime;
         if (timeCount > endTime)

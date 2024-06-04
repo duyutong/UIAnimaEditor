@@ -1,4 +1,4 @@
-
+﻿
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -52,7 +52,7 @@ public class SwitchButtonState : BehaviorTreeBaseState
             enter = _stateObj.enter;
             buttonObj = _stateObj.buttonObj;
 
-            currSwitchState = switchOn;//�ֶ���ʼ��״ֵ̬
+            currSwitchState = switchOn;//手动初始化状态值
         }
     }
     public override void Save()

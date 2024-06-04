@@ -1,4 +1,4 @@
-
+ï»¿
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -66,7 +66,7 @@ public class LogicGateState : BehaviorTreeBaseState
             int checkCount = lastStates.Count;
             foreach (BehaviorTreeBaseState lastState in lastStates)
             {
-                if (lastState.state == EBTState.Íê³É) checkCount--;
+                if (lastState.state == EBTState.å®Œæˆ) checkCount--;
                 if (checkCount == 0)
                 {
                     OnExit();

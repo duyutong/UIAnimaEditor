@@ -1,4 +1,4 @@
-
+ï»¿
 using D.Unity3dTools;
 using System;
 using System.Collections.Generic;
@@ -101,7 +101,7 @@ public class UIHoverBranchingState : UIEventBranchingState
             trigger.AddTriggerEventListener(EventTriggerType.PointerEnter, OnMyPointerEnter);
             trigger.AddTriggerEventListener(EventTriggerType.PointerExit, OnMyPointerExit);
             trigger.AddTriggerEventListener(EventTriggerType.PointerDown, OnMyPointerDown);
-            trigger.AddTriggerEventListener(EventTriggerType.PointerUp, OnMyPointerEnter);//Êó±êµ¯ÆğµÄÊ±ºòÄ¬ÈÏÔÙ´Î½øÈë·¶Î§
+            trigger.AddTriggerEventListener(EventTriggerType.PointerUp, OnMyPointerEnter);//é¼ æ ‡å¼¹èµ·çš„æ—¶å€™é»˜è®¤å†æ¬¡è¿›å…¥èŒƒå›´
         }
 
         bool isOver = IsMouseOverUIElement(rectTransform, uiCamera);

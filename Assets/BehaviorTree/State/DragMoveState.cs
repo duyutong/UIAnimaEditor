@@ -1,4 +1,4 @@
-
+ï»¿
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -84,7 +84,7 @@ public class DragMoveState : BehaviorTreeBaseState
         base.OnExecute();
 
         if (runtime == null) return;
-        if (state != EBTState.Ö´ĞĞÖĞ) return;
+        if (state != EBTState.æ‰§è¡Œä¸­) return;
 
         OnBeginDrag();
         OnDrag();
@@ -98,9 +98,9 @@ public class DragMoveState : BehaviorTreeBaseState
     }
     private void OnDrag()
     {
-        // ½«ÆÁÄ»×ø±ê×ª»»Îª Canvas ¿Õ¼ä×ø±ê
+        // å°†å±å¹•åæ ‡è½¬æ¢ä¸º Canvas ç©ºé—´åæ ‡
         RectTransformUtility.ScreenPointToLocalPointInRectangle(parentRect, pointerEventData.position, pointerEventData.pressEventCamera, out Vector2 localPoint);
-        // ÉèÖÃ UI ÔªËØµÄ anchoredPosition
+        // è®¾ç½® UI å…ƒç´ çš„ anchoredPosition
         targetRect.anchoredPosition = localPoint + dragOffset;
     }
     private void OnBeginDrag()
