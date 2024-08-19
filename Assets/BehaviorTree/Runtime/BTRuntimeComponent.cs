@@ -29,7 +29,7 @@ public class BTRuntimeComponent : MonoBehaviour
         foreach (NodeData nodeData in container.nodeDatas)
         {
             Type stateType = Type.GetType(nodeData.stateName);
-            BTState btState = (BTState)Activator.CreateInstance(stateType);
+            BTState btState = (BTState)Activator.CreateInstance(stateType);//做一个池子会更好
             btState.stateName = nodeData.stateName;
             btState.runtime = this;
             btState.nodeId = nodeData.guid;

@@ -68,21 +68,25 @@ public class LoopState : BehaviorTreeBaseState
                 if (currCount <= 0) { OnExit(); return; }
             }
 
-            base.OnExecute();
-            Infect((_s) =>
-            {
-                _s.OnRefresh();
-            }, (_s) =>
-            {
-                if (_s.stateName != "LoopState") return false;
-                if ((_s as LoopState).loopState != ELoopState.循环开始) return false;
-                return true;
-
-            });
-
-            lastLoopStartState.OnEnter();
+            OnExecute();
         }
+    }
+    public override void OnExecute() 
+    {
+        base.OnExecute();
 
+        Infect((_s) =>
+        {
+            _s.OnRefresh();
+        }, (_s) =>
+        {
+            if (_s.stateName != "LoopState") return false;
+            if ((_s as LoopState).loopState != ELoopState.循环开始) return false;
+            return true;
+
+        });
+
+        lastLoopStartState.OnEnter();
     }
     private void FindLastLoopStart()
     {

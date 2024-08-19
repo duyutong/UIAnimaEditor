@@ -77,12 +77,12 @@ public class EventTagSenderState : BehaviorTreeBaseState
         if (isCanExecute) OnExecute();
         else OnExit();
     }
-    public override void OnExecute() 
+    public override void OnExecute()
     {
         base.OnExecute();
-        if (runtime != null) 
+        if (runtime != null)
         {
-            if(tagSendType == EBTTagSendType.Local) runtime.OnReceiveMsg(sendTag, sendState);
+            if (tagSendType == EBTTagSendType.Local) runtime.OnReceiveMsg(sendTag, sendState);
             if (tagSendType == EBTTagSendType.Scene) BTRuntimeController.ins.SendToTag(sendTag, sendState);
         }
         OnExit();
@@ -99,7 +99,7 @@ public class EventTagSenderStateObj : BTStateObject
     public EBTState sendState;
     public String sendTag;
 }
-public enum EBTTagSendType 
+public enum EBTTagSendType
 {
     Local,
     Scene,

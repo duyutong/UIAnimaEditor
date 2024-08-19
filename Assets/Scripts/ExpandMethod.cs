@@ -196,7 +196,6 @@ namespace D.Unity3dTools
                 }
             }
 
-            // Remove any remaining elements from the list
             if (writeIndex < list.Count)
             {
                 list.RemoveRange(writeIndex, list.Count - writeIndex);
