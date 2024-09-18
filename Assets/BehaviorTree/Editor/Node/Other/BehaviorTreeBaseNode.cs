@@ -44,8 +44,8 @@ public abstract class BehaviorTreeBaseNode : Node
 
     public List<string> GetNodeList()
     {
-        List<string> lastNodesId = new List<string>{ guid };
-        foreach (BehaviorTreeBaseNode lastNode in lastNodes) 
+        List<string> lastNodesId = new List<string> { guid };
+        foreach (BehaviorTreeBaseNode lastNode in lastNodes)
         {
             List<string> _list = lastNode.GetNodeList();
             lastNodesId.InsertRange(0, _list);
@@ -192,6 +192,7 @@ public class BTNodePortSetting
             case EPortType.Boolean: return typeof(bool);
             case EPortType.Int32: return typeof(int);
             case EPortType.Float: return typeof(float);
+            case EPortType.Long: return typeof(long);
             case EPortType.Vector3: return typeof(Vector3);
             case EPortType.Vector4: return typeof(Vector4);
             case EPortType.Vector2: return typeof(Vector2);
@@ -214,6 +215,7 @@ public enum EPortType
     Vector2,
     Vector3,
     Vector4,
+    Long,
     Float,
     Int32,
     String,

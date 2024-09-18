@@ -81,7 +81,7 @@ MonoBehaviour:
     - fromPortName: idel
       toPortName: exit
       nodeId: c0abd483-a870-4714-82d0-228402d403c5
-    nodePos: {x: 314, y: 206}
+    nodePos: {x: 322, y: 129}
     typeName: Deco_UIDragBranching
     stateName: UIDragBranchingState
     stateParams: '{"hideFlags":0,"name":"","interruptTag":"","interruptible":false,"output":[{"fromPortName":"drag","nodeId":"042356c8-c88b-4d4f-b84c-19c90f4ea345","toPortName":"enter","value":null},{"fromPortName":"drag","nodeId":"3c18b9e0-180a-4437-a7f2-05ad4370ba39","toPortName":"enter","value":null},{"fromPortName":"idel","nodeId":"c0abd483-a870-4714-82d0-228402d403c5","toPortName":"exit","value":null}],"beginDrag":false,"drag":false,"endDrag":false,"enter":false,"idel":true,"state":0,"targetObj":{"localPath":"self","pathType":0,"scenePath":"","selfPath":"self","target":null},"uiCameraObj":{"localPath":"","pathType":1,"scenePath":"UICamera","selfPath":"self","target":null}}'

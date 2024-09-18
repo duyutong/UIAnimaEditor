@@ -479,7 +479,7 @@ public class SearchMenuWindowProvider : ScriptableObject, ISearchWindowProvider
         {
             if (!_node.IsSubclassOf(typeof(T))) continue;
             Type type = Type.GetType(_node.FullName);
-            entries.Add(new SearchTreeEntry(new GUIContent("  " + _node.FullName)) { level = 2, userData = type });
+            entries.Add(new SearchTreeEntry(new GUIContent("  " + _node.FullName)) { level = level, userData = type });
         }
         return entries;
     }

@@ -77,21 +77,6 @@ MonoBehaviour:
     typeName: Deco_LogicGate
     stateName: LogicGateState
     stateParams: '{"hideFlags":0,"name":"","interruptTag":"","interruptible":false,"output":[{"fromPortName":"exit","nodeId":"206bd472-653e-452f-bff3-209966b81748","toPortName":"exit","value":null},{"fromPortName":"exit","nodeId":"206bd472-653e-452f-bff3-209966b81748","toPortName":"exit","value":null}],"logicType":0,"state":0}'
-  - nodeName: EventTagSender
-    guid: d7269523-15c9-401f-a0c6-dcc90bd59e68
-    lastNodes:
-    - 9b239b49-11a9-4ef1-ae30-ef5c07bfddf1
-    output:
-    - fromPortName: exit
-      toPortName: exit
-      nodeId: 03eb75ac-d1d1-4c90-b339-44d10b34c746
-    - fromPortName: exit
-      toPortName: exit
-      nodeId: 03eb75ac-d1d1-4c90-b339-44d10b34c746
-    nodePos: {x: 491, y: 96}
-    typeName: Behav_EventTagSender
-    stateName: EventTagSenderState
-    stateParams: '{"hideFlags":0,"name":"","interruptTag":"","interruptible":false,"output":[{"fromPortName":"exit","nodeId":"03eb75ac-d1d1-4c90-b339-44d10b34c746","toPortName":"exit","value":null},{"fromPortName":"exit","nodeId":"03eb75ac-d1d1-4c90-b339-44d10b34c746","toPortName":"exit","value":null}],"enter":false,"exit":false,"sendState":1,"sendTag":"show","state":0,"tagSendType":0}'
   - nodeName: Reset
     guid: 03eb75ac-d1d1-4c90-b339-44d10b34c746
     lastNodes:
@@ -124,21 +109,6 @@ MonoBehaviour:
     typeName: Trigger_BTTagEventTrigger
     stateName: BTTagEventTriggerState
     stateParams: '{"hideFlags":0,"name":"","interruptTag":"","interruptible":false,"output":[{"fromPortName":"exit","nodeId":"80557454-985c-4a34-ab16-03cba833829b","toPortName":"enter","value":null},{"fromPortName":"exit","nodeId":"4a598a33-9482-4512-9637-69f723a268a7","toPortName":"enter","value":null}],"triggerTag":"hide","exit":false,"state":0}'
-  - nodeName: EventTagSender
-    guid: 74d3f86e-cf48-44ab-850e-81097e8ac3d6
-    lastNodes:
-    - 9b239b49-11a9-4ef1-ae30-ef5c07bfddf1
-    output:
-    - fromPortName: exit
-      toPortName: exit
-      nodeId: d0a6ecff-147a-4ee1-b0ed-54eb63794924
-    - fromPortName: exit
-      toPortName: exit
-      nodeId: d0a6ecff-147a-4ee1-b0ed-54eb63794924
-    nodePos: {x: 491, y: 246}
-    typeName: Behav_EventTagSender
-    stateName: EventTagSenderState
-    stateParams: '{"hideFlags":0,"name":"","interruptTag":"","interruptible":false,"output":[{"fromPortName":"exit","nodeId":"d0a6ecff-147a-4ee1-b0ed-54eb63794924","toPortName":"exit","value":null},{"fromPortName":"exit","nodeId":"d0a6ecff-147a-4ee1-b0ed-54eb63794924","toPortName":"exit","value":null}],"enter":false,"exit":false,"sendState":1,"sendTag":"hide","state":0,"tagSendType":0}'
   - nodeName: ColorAnima
     guid: 585d3610-44d7-4c7a-b340-4a216f6ffe57
     lastNodes:
@@ -207,6 +177,30 @@ MonoBehaviour:
     typeName: Behav_SetRectWidth
     stateName: SetRectWidthState
     stateParams: '{"hideFlags":0,"name":"","interruptTag":"","interruptible":false,"output":[{"fromPortName":"exit","nodeId":"b26f428c-0cd7-4aa6-94bf-941d5f144f7c","toPortName":"enter","value":null},{"fromPortName":"exit","nodeId":"b26f428c-0cd7-4aa6-94bf-941d5f144f7c","toPortName":"enter","value":null}],"animaCurve":{"keys":[{"inTangent":2,"inWeight":0,"outTangent":2,"outWeight":0,"tangentMode":0,"time":0,"value":0,"weightedMode":0},{"inTangent":377.8365,"inWeight":0.333333343,"outTangent":377.8365,"outWeight":0.333333343,"tangentMode":0,"time":0.1,"value":600,"weightedMode":0},{"inTangent":-899.9999,"inWeight":0.333333343,"outTangent":-899.9999,"outWeight":0.333333343,"tangentMode":34,"time":0.15,"value":480,"weightedMode":0},{"inTangent":177.771,"inWeight":0.333333343,"outTangent":177.771,"outWeight":0.333333343,"tangentMode":0,"time":0.2,"value":510,"weightedMode":0},{"inTangent":-199.597153,"inWeight":0.333333343,"outTangent":-199.597153,"outWeight":0.333333343,"tangentMode":0,"time":0.25,"value":495,"weightedMode":0},{"inTangent":0,"inWeight":0,"outTangent":0,"outWeight":0,"tangentMode":0,"time":0.3,"value":500,"weightedMode":0}],"postWrapMode":8,"preWrapMode":8},"enter":false,"exit":false,"state":0,"target":{"localPath":"self","pathType":0,"scenePath":"","selfPath":"self","target":null}}'
+  - nodeName: EventTagSender
+    guid: d7269523-15c9-401f-a0c6-dcc90bd59e68
+    lastNodes:
+    - 9b239b49-11a9-4ef1-ae30-ef5c07bfddf1
+    output:
+    - fromPortName: exit
+      toPortName: exit
+      nodeId: 03eb75ac-d1d1-4c90-b339-44d10b34c746
+    nodePos: {x: 491, y: 96}
+    typeName: Behav_EventTagSender
+    stateName: EventTagSenderState
+    stateParams: '{"hideFlags":0,"name":"","interruptTag":"","interruptible":false,"output":[{"fromPortName":"exit","nodeId":"03eb75ac-d1d1-4c90-b339-44d10b34c746","toPortName":"exit","value":null}],"enter":false,"exit":false,"sendState":1,"sendTag":"show","state":0,"tagSendType":0}'
+  - nodeName: EventTagSender
+    guid: 74d3f86e-cf48-44ab-850e-81097e8ac3d6
+    lastNodes:
+    - 9b239b49-11a9-4ef1-ae30-ef5c07bfddf1
+    output:
+    - fromPortName: exit
+      toPortName: exit
+      nodeId: d0a6ecff-147a-4ee1-b0ed-54eb63794924
+    nodePos: {x: 491, y: 246}
+    typeName: Behav_EventTagSender
+    stateName: EventTagSenderState
+    stateParams: '{"hideFlags":0,"name":"","interruptTag":"","interruptible":false,"output":[{"fromPortName":"exit","nodeId":"d0a6ecff-147a-4ee1-b0ed-54eb63794924","toPortName":"exit","value":null}],"enter":false,"exit":false,"sendState":1,"sendTag":"hide","state":0,"tagSendType":0}'
   edgeDatas:
   - outPortNode: 74d3f86e-cf48-44ab-850e-81097e8ac3d6
     intputPortNode: d0a6ecff-147a-4ee1-b0ed-54eb63794924
