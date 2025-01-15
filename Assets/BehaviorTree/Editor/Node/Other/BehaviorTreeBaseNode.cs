@@ -7,6 +7,7 @@ using UnityEngine.UIElements;
 using System;
 using static UnityEditor.Experimental.GraphView.Port;
 using D.Unity3dTools;
+using UnityEngine.Events;
 
 /// <summary>
 /// 行为树基础节点类
@@ -30,7 +31,7 @@ public abstract class BehaviorTreeBaseNode : Node
     public GameObject target;
     public List<BehaviorTreeBaseNode> lastNodes = new List<BehaviorTreeBaseNode>();
     public Action<BehaviorTreeBaseNode> onSelectAction; //选中节点后，将节点信息返回出去
-    public Action onUnselected;//取消选择回调
+    public Action onUnselectedAction;//取消选择回调
     public BehaviorTreeBaseState btState;
 
     /// <summary>
@@ -69,7 +70,7 @@ public abstract class BehaviorTreeBaseNode : Node
     public override void OnUnselected()
     {
         base.OnUnselected();
-        onUnselected?.Invoke();
+        onUnselectedAction?.Invoke();
     }
 
     /// <summary>
@@ -200,6 +201,7 @@ public class BTNodePortSetting
             case EPortType.AnimationCurve: return typeof(AnimationCurve);
             case EPortType.Color: return typeof(Color);
             case EPortType.Object: return typeof(BTTargetObject);
+            case EPortType.Event:return typeof(BTTargetEvent);
         }
         return typeof(string);
     }
@@ -222,4 +224,5 @@ public enum EPortType
     AnimationCurve,
     Color,
     Object,
+    Event,
 }

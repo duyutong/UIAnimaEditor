@@ -65,7 +65,7 @@ public class CustomNodeView : GraphView
         node.title = nodeName;
         node.nodeType = nodeType;
         node.onSelectAction = onSelectAction;
-        node.onUnselected = onUnselectAction;
+        node.onUnselectedAction = onUnselectAction;
         node.nodePos = default;
         node.SetPosition(new Rect(node.nodePos, node.GetPosition().size));
 
@@ -159,7 +159,7 @@ public class CustomNodeView : GraphView
         node.nodePos = nodeData.nodePos + 10 * Vector2.one;
         node.SetPosition(new Rect(node.nodePos, node.GetPosition().size));
         node.onSelectAction = onSelectAction;
-        node.onUnselected = onUnselectAction;
+        node.onUnselectedAction = onUnselectAction;
         node.AddPortForNode(customNodeData.portSettings);
 
         AddElement(node);

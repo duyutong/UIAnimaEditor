@@ -1,0 +1,104 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e72bb62fccd446148ad9fc3191eea09a, type: 3}
+  m_Name: down&up&clickAction
+  m_EditorClassIdentifier: 
+  nodeDatas:
+  - nodeName: UIDownOrUpBranching
+    guid: 63df91a4-94bd-4f5a-9ab0-391b1586cef5
+    lastNodes: []
+    output:
+    - fromPortName: pointerDown
+      toPortName: enter
+      nodeId: 6d41d7ad-d09f-495b-b188-6da9ef6a0d27
+    - fromPortName: pointerUp
+      toPortName: enter
+      nodeId: 0ffca4a0-e706-4d81-9bf6-1f92cdb2d27c
+    nodePos: {x: 280, y: 86}
+    typeName: Deco_UIDownOrUpBranching
+    stateName: UIDownOrUpBranchingState
+    stateParams: '{"hideFlags":0,"name":"","interruptTag":"","interruptible":false,"output":[{"fromPortName":"pointerDown","nodeId":"6d41d7ad-d09f-495b-b188-6da9ef6a0d27","toPortName":"enter","value":null},{"fromPortName":"pointerUp","nodeId":"0ffca4a0-e706-4d81-9bf6-1f92cdb2d27c","toPortName":"enter","value":null}],"enter":false,"idel":true,"pointerDown":false,"pointerUp":false,"state":0,"targetObj":{"localPath":"self","pathType":0,"scenePath":"","selfPath":"self","target":null}}'
+  - nodeName: Reset
+    guid: 9c54dbe2-8a8c-4b58-8f13-38d7ecbd787d
+    lastNodes:
+    - 6d41d7ad-d09f-495b-b188-6da9ef6a0d27
+    output: []
+    nodePos: {x: 832, y: 24}
+    typeName: Deco_Reset
+    stateName: ResetState
+    stateParams: '{"hideFlags":0,"name":"","interruptTag":"","interruptible":false,"output":[],"exit":false,"state":0}'
+  - nodeName: ScaleAnima
+    guid: 6d41d7ad-d09f-495b-b188-6da9ef6a0d27
+    lastNodes:
+    - 63df91a4-94bd-4f5a-9ab0-391b1586cef5
+    output:
+    - fromPortName: exit
+      toPortName: exit
+      nodeId: 9c54dbe2-8a8c-4b58-8f13-38d7ecbd787d
+    nodePos: {x: 587, y: 24}
+    typeName: Behav_ScaleAnima
+    stateName: ScaleAnimaState
+    stateParams: '{"hideFlags":0,"name":"","interruptTag":"","interruptible":false,"output":[{"fromPortName":"exit","nodeId":"9c54dbe2-8a8c-4b58-8f13-38d7ecbd787d","toPortName":"exit","value":null}],"animaCurve":{"keys":[{"inTangent":2,"inWeight":0,"outTangent":2,"outWeight":0,"tangentMode":0,"time":0,"value":1,"weightedMode":0},{"inTangent":-8.9309845,"inWeight":0.02060159,"outTangent":-8.9309845,"outWeight":0.1217314,"tangentMode":0,"time":0.227846622,"value":1.219176,"weightedMode":0},{"inTangent":0,"inWeight":0.258225977,"outTangent":0,"outWeight":0,"tangentMode":0,"time":0.3,"value":1.2,"weightedMode":0}],"postWrapMode":8,"preWrapMode":8},"enter":false,"exit":false,"state":0,"target":{"localPath":"self","pathType":0,"scenePath":"","selfPath":"self","target":null}}'
+  - nodeName: ScaleAnima
+    guid: 0ffca4a0-e706-4d81-9bf6-1f92cdb2d27c
+    lastNodes:
+    - 63df91a4-94bd-4f5a-9ab0-391b1586cef5
+    output:
+    - fromPortName: exit
+      toPortName: enter
+      nodeId: 789d5a11-d3f5-4986-a54c-daf6681ce7db
+    nodePos: {x: 588, y: 174}
+    typeName: Behav_ScaleAnima
+    stateName: ScaleAnimaState
+    stateParams: '{"hideFlags":0,"name":"","interruptTag":"","interruptible":false,"output":[{"fromPortName":"exit","nodeId":"789d5a11-d3f5-4986-a54c-daf6681ce7db","toPortName":"enter","value":null}],"animaCurve":{"keys":[{"inTangent":2,"inWeight":0,"outTangent":2,"outWeight":0,"tangentMode":0,"time":0,"value":1.2,"weightedMode":0},{"inTangent":0.896798,"inWeight":0.333333343,"outTangent":0.896798,"outWeight":0.333333343,"tangentMode":34,"time":0.13232787,"value":0.800960064,"weightedMode":0},{"inTangent":0.7181462,"inWeight":0.333333343,"outTangent":0.7181462,"outWeight":0.333333343,"tangentMode":34,"time":0.192711532,"value":1.0913533,"weightedMode":0},{"inTangent":-0.5918021,"inWeight":0.333333343,"outTangent":-0.5918021,"outWeight":0.333333343,"tangentMode":34,"time":0.2363148,"value":0.9442863,"weightedMode":0},{"inTangent":0.729683638,"inWeight":0.333333343,"outTangent":0.729683638,"outWeight":0.333333343,"tangentMode":34,"time":0.271324,"value":1.02092981,"weightedMode":0},{"inTangent":0.8842995,"inWeight":0.955879569,"outTangent":0.8842995,"outWeight":0,"tangentMode":0,"time":0.3,"value":1,"weightedMode":0}],"postWrapMode":8,"preWrapMode":8},"enter":false,"exit":false,"state":0,"target":{"localPath":"self","pathType":0,"scenePath":"","selfPath":"self","target":null}}'
+  - nodeName: Reset
+    guid: 01848a65-5513-4c92-9c53-1c744d676fc9
+    lastNodes:
+    - 789d5a11-d3f5-4986-a54c-daf6681ce7db
+    output: []
+    nodePos: {x: 1072, y: 174}
+    typeName: Deco_Reset
+    stateName: ResetState
+    stateParams: '{"hideFlags":0,"name":"","interruptTag":"","interruptible":false,"output":[],"exit":false,"state":0}'
+  - nodeName: InvokeAction
+    guid: 789d5a11-d3f5-4986-a54c-daf6681ce7db
+    lastNodes:
+    - 0ffca4a0-e706-4d81-9bf6-1f92cdb2d27c
+    output:
+    - fromPortName: exit
+      toPortName: exit
+      nodeId: 01848a65-5513-4c92-9c53-1c744d676fc9
+    nodePos: {x: 838, y: 174}
+    typeName: Behav_InvokeAction
+    stateName: InvokeActionState
+    stateParams: '{"hideFlags":0,"name":"","interruptTag":"","interruptible":false,"output":[{"fromPortName":"exit","nodeId":"01848a65-5513-4c92-9c53-1c744d676fc9","toPortName":"exit","value":null}],"btEvent":{"persistentDatas":[{"assemblyTypeName":"Test","btTargetObject":{"localPath":null,"pathType":1,"scenePath":"Canvas\/dragItem\/TestGameObject","selfPath":"self","target":null},"methodName":"OnTest","target":null}],"targetEvent":null},"enter":false,"exit":false,"state":0}'
+  edgeDatas:
+  - outPortNode: 63df91a4-94bd-4f5a-9ab0-391b1586cef5
+    intputPortNode: 6d41d7ad-d09f-495b-b188-6da9ef6a0d27
+    outPortName: pointerDown
+    intputPortName: enter
+  - outPortNode: 63df91a4-94bd-4f5a-9ab0-391b1586cef5
+    intputPortNode: 0ffca4a0-e706-4d81-9bf6-1f92cdb2d27c
+    outPortName: pointerUp
+    intputPortName: enter
+  - outPortNode: 6d41d7ad-d09f-495b-b188-6da9ef6a0d27
+    intputPortNode: 9c54dbe2-8a8c-4b58-8f13-38d7ecbd787d
+    outPortName: exit
+    intputPortName: exit
+  - outPortNode: 0ffca4a0-e706-4d81-9bf6-1f92cdb2d27c
+    intputPortNode: 789d5a11-d3f5-4986-a54c-daf6681ce7db
+    outPortName: exit
+    intputPortName: enter
+  - outPortNode: 789d5a11-d3f5-4986-a54c-daf6681ce7db
+    intputPortNode: 01848a65-5513-4c92-9c53-1c744d676fc9
+    outPortName: exit
+    intputPortName: exit

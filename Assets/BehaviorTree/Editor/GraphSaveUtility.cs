@@ -15,6 +15,7 @@ using Edge = UnityEditor.Experimental.GraphView.Edge;
 public static class GraphSaveUtility
 {
     private static List<BTTargetObject> bTTargetObjects = new List<BTTargetObject>();
+    private static List<BTTargetEvent> bTTargetEvents = new List<BTTargetEvent>();
     /// <summary>
     /// 保存节点和连线数据到ScriptableObject，并将其存储在指定文件路径
     /// </summary>
@@ -89,7 +90,7 @@ public static class GraphSaveUtility
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
 
-        ResetBTTargetObject();
+        ResetBTTarget();
         Debug.Log($"{fileName}保存完成");
     }
     private static List<string> TopologicalSort(List<TopologyData> nodes)
@@ -142,13 +143,21 @@ public static class GraphSaveUtility
 
         return sortedList;
     }
-    private static void ResetBTTargetObject() 
+    private static void ResetBTTarget() 
     {
         foreach (BTTargetObject bTTargetObject in bTTargetObjects) 
         {
             if (bTTargetObject == null) continue;
             bTTargetObject.SetObejctByPath();
         }
+        bTTargetObjects.Clear();
+
+        foreach (BTTargetEvent bTTargetEvent in bTTargetEvents)
+        {
+            if (bTTargetEvent == null) continue;
+            bTTargetEvent.SetTargetEvent();
+        }
+        bTTargetEvents.Clear();
     }
     private static void CheckAndProcessObjectFields(BTStateObject bTState) 
     {
@@ -162,6 +171,12 @@ public static class GraphSaveUtility
                 BTTargetObject bTTargetObject = (BTTargetObject)field.GetValue(bTState);
                 if (bTTargetObject != null) bTTargetObject.SerializeSelf();
                 bTTargetObjects.Add(bTTargetObject);
+            }
+            if (field.FieldType == typeof(BTTargetEvent)) 
+            {
+                BTTargetEvent bTTargetEvent = (BTTargetEvent)field.GetValue(bTState);
+                if (bTTargetEvent != null) bTTargetEvent.SerializeSelf();
+                bTTargetEvents.Add(bTTargetEvent);
             }
         }
     }

@@ -17,7 +17,6 @@ public class InspectorView : VisualElement
         IMGUIContainer container = new IMGUIContainer(() =>
         {
             if (node == null || node.btState == null) return;
-            //Debug.Log($"在Inspector中显示{node.title}内容");
             editor.OnInspectorGUI();
         });
         Add(container);

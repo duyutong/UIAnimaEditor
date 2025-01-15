@@ -7,20 +7,15 @@ using BTState = BehaviorTreeBaseState;
 
 public class BTRuntimeComponent : MonoBehaviour
 {
-    [SerializeField]
+    public bool loadAndRecycleData;
     public BTContainer container;
+
     public Dictionary<string, BTState> stateDic = new Dictionary<string, BTState>();
     public Dictionary<string, List<string>> lastStateDic = new Dictionary<string, List<string>>();
 
     private List<string> statesIds = new List<string>();
     private bool isInitFinish;
     private int componentIndex;
-    private void Awake()
-    {
-        isInitFinish = false;
-        LoadStates();
-        BTRuntimeController.AddRuntime(this, (_index) => { componentIndex = _index; });
-    }
     /// <summary>
     /// 加载行为树状态
     /// </summary>
@@ -29,12 +24,12 @@ public class BTRuntimeComponent : MonoBehaviour
         foreach (NodeData nodeData in container.nodeDatas)
         {
             Type stateType = Type.GetType(nodeData.stateName);
-            BTState btState = (BTState)Activator.CreateInstance(stateType);//做一个池子会更好
+            BTState btState = BTObjectPool.GetObject<BTState>(stateType);
             btState.stateName = nodeData.stateName;
             btState.runtime = this;
             btState.nodeId = nodeData.guid;
             btState.InitParam(nodeData.stateParams);
-            btState.InitBTTargetObejct();
+            btState.InitBTTarget();
             stateDic.Add(nodeData.guid, btState);
             lastStateDic.Add(nodeData.guid, nodeData.lastNodes);
         }
@@ -120,7 +115,17 @@ public class BTRuntimeComponent : MonoBehaviour
 
         return sortedList;
     }
-
+    public void UnLoadStates() 
+    {
+        foreach (KeyValuePair<string, BTState> keyValuePair in stateDic) 
+        {
+            BTState state = keyValuePair.Value;
+            BTObjectPool.ReturnObject(state);
+        }
+        lastStateDic.Clear();
+        stateDic.Clear();
+        isInitFinish = false;
+    }
     /// <summary>
     /// 设置行为树状态值
     /// </summary>
@@ -149,9 +154,9 @@ public class BTRuntimeComponent : MonoBehaviour
         }
         isInitFinish = true;
     }
-    public void OnReceiveMsg(string stateTag, EBTState eBTState)
+    public void OnReceiveMsg(string triggerTag, EBTState eBTState)
     {
-        Debug.Log($"stateTag {stateTag} eBTState {eBTState}");
+        Debug.Log($"stateTag {triggerTag} eBTState {eBTState}");
 
         foreach (KeyValuePair<string, BTState> keyValuePair in stateDic)
         {
@@ -160,7 +165,7 @@ public class BTRuntimeComponent : MonoBehaviour
             {
                 if (checkState.state != EBTState.执行中) continue;
                 if (!checkState.interruptible) continue;
-                if (checkState.interruptTag != stateTag) continue;
+                if (checkState.interruptTag != triggerTag) continue;
                 checkState.OnInterrupt();
             }
             else if (eBTState == EBTState.进入) 
@@ -168,7 +173,7 @@ public class BTRuntimeComponent : MonoBehaviour
                 TiggerBaseState check = checkState as TiggerBaseState;
                 bool isTrigger = check != null && !string.IsNullOrEmpty(check.triggerTag);
                 if (!isTrigger) continue;
-                if (check.triggerTag != stateTag) continue;
+                if (check.triggerTag != triggerTag) continue;
                 if (checkState.state != EBTState.未开始) checkState.OnRefresh();
                 checkState.OnEnter();
             }
@@ -186,7 +191,9 @@ public class BTRuntimeComponent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!isInitFinish) return;   
+        if (!isInitFinish) return;
+        if (stateDic == null) return;
+
         foreach (string nodeId in statesIds)
         {
             BTState checkState = stateDic[nodeId];
@@ -217,9 +224,30 @@ public class BTRuntimeComponent : MonoBehaviour
             }
         }
     }
+    private void OnDisable()
+    {
+        if (loadAndRecycleData && isInitFinish) 
+        {
+            UnLoadStates();
+            BTRuntimeController.RemoveRuntime(componentIndex);
+        }
+    }
+    private void OnEnable() 
+    {
+        if (!isInitFinish) 
+        {
+            LoadStates();
+            BTRuntimeController.AddRuntime(this, (_index) => { componentIndex = _index; });
+        }
+    }
     private void OnDestroy()
     {
-        BTRuntimeController.RemoveRuntime(componentIndex);
+        if (isInitFinish) 
+        {
+            UnLoadStates();
+            BTRuntimeController.RemoveRuntime(componentIndex);
+        }
+       
     }
 }
 public class TopologyData

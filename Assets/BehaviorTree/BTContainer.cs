@@ -5,17 +5,17 @@ using UnityEngine;
 [Serializable]
 public class BTContainer : ScriptableObject
 {
-    //[HideInInspector]
+    [HideInInspector]
     public List<NodeData> nodeDatas = new List<NodeData>();
-    //[HideInInspector]
+    [HideInInspector]
     public List<EdgeData>edgeDatas = new List<EdgeData>();
 }
 [Serializable]
 public class BTContainer_Copy
 {
-    //[HideInInspector]
+    [HideInInspector]
     public List<NodeData> nodeDatas = new List<NodeData>();
-    //[HideInInspector]
+    [HideInInspector]
     public List<EdgeData> edgeDatas = new List<EdgeData>();
 }
 [Serializable]

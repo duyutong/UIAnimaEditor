@@ -467,6 +467,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afaf8501e89276548882997abec1c7d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadAndRecycleData: 0
   container: {fileID: 11400000, guid: 7dfbbbea807808143880c5ee18e381ea, type: 2}
 --- !u!1 &781893958
 GameObject:
@@ -520,6 +521,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afaf8501e89276548882997abec1c7d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadAndRecycleData: 0
   container: {fileID: 11400000, guid: 7dfbbbea807808143880c5ee18e381ea, type: 2}
 --- !u!114 &781893961
 MonoBehaviour:
@@ -611,6 +613,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afaf8501e89276548882997abec1c7d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadAndRecycleData: 0
   container: {fileID: 11400000, guid: 7dfbbbea807808143880c5ee18e381ea, type: 2}
 --- !u!114 &834728819
 MonoBehaviour:
@@ -650,6 +653,56 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 834728816}
   m_CullTransparentMesh: 1
+--- !u!1 &1026247973
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1026247974}
+  - component: {fileID: 1026247975}
+  m_Layer: 5
+  m_Name: TestGameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1026247974
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1026247973}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1293115997}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 622.99976, y: -41.99994}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1026247975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1026247973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e3e9d19b9420f944a47ef9674b89feb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eTest: 2
 --- !u!1 &1079363342
 GameObject:
   m_ObjectHideFlags: 0
@@ -833,14 +886,15 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1026247974}
   m_Father: {fileID: 576444693}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 337, y: -498}
-  m_SizeDelta: {x: 200, y: 300}
+  m_SizeDelta: {x: 150, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1293115998
 MonoBehaviour:
@@ -854,7 +908,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afaf8501e89276548882997abec1c7d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  container: {fileID: 11400000, guid: 2621f02fe8f0fae4b868bf62f7096703, type: 2}
+  loadAndRecycleData: 0
+  container: {fileID: 11400000, guid: 490f5a6fe8312a64180b77a8ab12da33, type: 2}
 --- !u!114 &1293115999
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -905,6 +960,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afaf8501e89276548882997abec1c7d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadAndRecycleData: 0
   container: {fileID: 11400000, guid: 524b7fd75611ce34b8f191da792ee0b3, type: 2}
 --- !u!1 &1653865795
 GameObject:
@@ -1148,6 +1204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afaf8501e89276548882997abec1c7d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadAndRecycleData: 1
   container: {fileID: 11400000, guid: dd7e7ace9d9e6ef4eb12c70f1049564f, type: 2}
 --- !u!114 &1953003015
 MonoBehaviour:

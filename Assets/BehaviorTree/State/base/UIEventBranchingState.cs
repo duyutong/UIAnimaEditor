@@ -111,6 +111,7 @@ public class UIEventBranchingState : BehaviorTreeBaseState
             if (info.fromPortName == "pointerEventData") info.value = eventData;
             output[i] = info;
         }
+
         base.OnExit();
     }
 }

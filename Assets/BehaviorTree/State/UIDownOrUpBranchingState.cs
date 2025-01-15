@@ -111,7 +111,6 @@ public class UIDownOrUpBranchingState : UIEventBranchingState
         idel = true;
         pointerUp = false;
         pointerDown = false;
-
         OnExit();
     }
     private void OnMyPointerUp(PointerEventData data)

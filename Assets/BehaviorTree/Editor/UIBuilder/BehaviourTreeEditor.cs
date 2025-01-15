@@ -54,6 +54,8 @@ public class BehaviourTreeEditor : EditorWindow
     }
     public void LoadRuntimeContainer(BTRuntimeComponent runtime)
     {
+        if (runtime == null) return;
+
         BTContainer container = runtime.container;
 
         treeField.value = container;

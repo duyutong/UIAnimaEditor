@@ -13,6 +13,7 @@ public class BTTargetObject
     public EFindObjPathType pathType;
 
     private string selfPath = "self";
+
     [NonSerialized]
     public BTRuntimeComponent runtime;
     public void SetObejctByPath()
@@ -80,7 +81,7 @@ public class BTTargetObject
 
         if (current.GetComponent<BTRuntimeComponent>() != null) return selfPath; 
         
-        while (current.GetComponent<BTRuntimeComponent>() == null)
+        while (current!=null && current.GetComponent<BTRuntimeComponent>() == null)
         {
             path = path + "/" + current.name;
 

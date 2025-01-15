@@ -24,7 +24,7 @@ public class BehaviorTreeBaseState
     /// </summary>
     /// <param name="param">参数</param>
     public virtual void InitParam(string param) {}
-    public void InitBTTargetObejct() 
+    public void InitBTTarget() 
     {
         Type type = stateObj.GetType();
         if (type == null) return;
@@ -34,9 +34,20 @@ public class BehaviorTreeBaseState
             if (field.FieldType == typeof(BTTargetObject))
             {
                 BTTargetObject bTTargetObject = (BTTargetObject)field.GetValue(stateObj);
-                if (bTTargetObject == null) continue;
-                bTTargetObject.runtime = runtime;
-                bTTargetObject.SetObejctByPath();
+                if (bTTargetObject != null) 
+                {
+                    bTTargetObject.runtime = runtime;
+                    bTTargetObject.SetObejctByPath();
+                }
+            }
+            if (field.FieldType == typeof(BTTargetEvent)) 
+            {
+                BTTargetEvent bTTargetEvent = (BTTargetEvent)field.GetValue(stateObj);
+                if (bTTargetEvent != null) 
+                {
+                    bTTargetEvent.runtime = runtime;
+                    bTTargetEvent.SetTargetEvent();
+                }
             }
         }
     }
@@ -94,7 +105,13 @@ public class BehaviorTreeBaseState
     /// <summary>
     /// 退出状态回调
     /// </summary>
-    public virtual void OnExit() { state = EBTState.完成; onExitForRuntime?.Invoke(); }
+    public virtual void OnExit() 
+    {
+        if (output.Count == 1) output[0].value = true;
+
+        state = EBTState.完成;
+        onExitForRuntime?.Invoke();
+    }
 
     /// <summary>
     /// 打断

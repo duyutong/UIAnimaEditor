@@ -279,7 +279,8 @@ namespace D.Unity3dTools
         /// <param name="destination"></param>
         /// <param name="source">被复制对象</param>
         /// <param name="isPublicOnly">是否只复制被复制对象的公有变量</param>
-        public static void CopyFrom<T1, T2>(this T1 destination, T2 source, bool isPublicOnly = true)
+        /// <param name="isMatchCase">是否判断变量的大小写</param>
+        public static void CopyFrom<T1, T2>(this T1 destination, T2 source, bool isPublicOnly = true, bool isMatchCase = true)
         {
             Type type1 = typeof(T1);
             Type type2 = typeof(T2);
@@ -298,16 +299,15 @@ namespace D.Unity3dTools
             {
                 foreach (FieldInfo field2 in fieldInfos2)
                 {
-                    if (field1.Name == field2.Name && field1.FieldType == field2.FieldType)
+                    if (field1.FieldType == typeof(Action<int>)) continue;
+                    if (field1.FieldType == typeof(Action)) continue;
+                    bool nameCheck = isMatchCase ? field1.Name.ToLower() == field2.Name.ToLower() : field1.Name == field2.Name;
+                    if (nameCheck && field1.FieldType == field2.FieldType)
                     {
                         if (field2.FieldType.IsValueType || field2.FieldType.Equals(typeof(string)))
                         {
                             field1.SetValue(destination, field2.GetValue(source));
                             break;
-                        }
-                        else if (IsListType(field2.FieldType))
-                        {
-                            field1.SetValue(destination, field2.GetValue(source));
                         }
                         else
                         {
@@ -322,17 +322,21 @@ namespace D.Unity3dTools
 
             foreach (PropertyInfo prop1 in properties1)
             {
+
                 foreach (PropertyInfo prop2 in properties2)
                 {
                     if (prop1.Name == prop2.Name && prop1.PropertyType == prop2.PropertyType)
                     {
-                        if (prop1.PropertyType.IsValueType)
+                        if (prop1.PropertyType.IsValueType && prop1.CanWrite)
                         {
+                            Debug.LogError(prop1.Name + "  " + prop1.CanWrite);
                             prop1.SetValue(destination, prop2.GetValue(source));
                             break;
                         }
                         else
                         {
+                            if (prop1.PropertyType.IsInterface) continue;
+                            if (!prop1.CanWrite) continue;
                             object retval = Activator.CreateInstance(prop1.PropertyType);
                             retval.CopyFrom(prop2.GetValue(source));
                             prop1.SetValue(destination, retval);

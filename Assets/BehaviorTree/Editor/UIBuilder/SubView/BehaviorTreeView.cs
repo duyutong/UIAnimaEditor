@@ -216,7 +216,7 @@ public class BehaviorTreeView : GraphView
 
         Type stateType = GetType(node.stateName);
         node.onSelectAction = onSelectAction;
-        node.onUnselected = onUnselectAction;
+        node.onUnselectedAction = onUnselectAction;
         node.target = selectionTarget;
         node.btState = (BehaviorTreeBaseState)Activator.CreateInstance(stateType);
         node.nodePos = pos;
@@ -241,7 +241,7 @@ public class BehaviorTreeView : GraphView
 
         Type stateType = GetType(node.stateName);
         node.onSelectAction = onSelectAction;
-        node.onUnselected = onUnselectAction;
+        node.onUnselectedAction = onUnselectAction;
         node.target = selectionTarget;
         node.btState = (BehaviorTreeBaseState)Activator.CreateInstance(stateType);
         node.nodePos = pos;
@@ -268,9 +268,9 @@ public class BehaviorTreeView : GraphView
         BehaviorTreeBaseState btState = (BehaviorTreeBaseState)Activator.CreateInstance(stateType);
         btState.runtime = runtime;
         btState.InitParam(nodeData.stateParams);
-        btState.InitBTTargetObejct();
+        btState.InitBTTarget();
         node.onSelectAction = onSelectAction;
-        node.onUnselected = onUnselectAction;
+        node.onUnselectedAction = onUnselectAction;
         node.target = selectionTarget;
         node.btState = btState;
         node.guid = nodeData.guid;
@@ -344,7 +344,7 @@ public class BehaviorTreeView : GraphView
         };
 
         node.onSelectAction = onSelectAction;
-        node.onUnselected = onUnselectAction;
+        node.onUnselectedAction = onUnselectAction;
         node.target = selectionTarget;
         node.btState = btState;
         node.guid = nodeData.guid;
