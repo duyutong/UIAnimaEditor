@@ -53,6 +53,16 @@ public class ScaleAnimaState : BehaviorTreeBaseState
             target = _stateObj.target;
         }
     }
+    protected override ESetFieldValueResult SetFieldValue(string fieldName, object value)
+    {
+        if (StringComparer.Ordinal.Equals(fieldName, "exit") && value is bool exitValue) exit = exitValue;
+        else if (StringComparer.Ordinal.Equals(fieldName, "enter") && value is bool enterValue) enter = enterValue;
+        else if (StringComparer.Ordinal.Equals(fieldName, "animaCurve") && value is AnimationCurve curveValue) animaCurve = curveValue;
+        else if (StringComparer.Ordinal.Equals(fieldName, "target") && value is BTTargetObject targetValue) target = targetValue;
+        else return ESetFieldValueResult.Fail;
+
+        return ESetFieldValueResult.Succ;
+    }
     public override void Save()
     {
         if (stateObj == null) return;

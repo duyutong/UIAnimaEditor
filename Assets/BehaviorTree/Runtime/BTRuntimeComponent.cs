@@ -156,7 +156,7 @@ public class BTRuntimeComponent : MonoBehaviour
     }
     public void OnReceiveMsg(string triggerTag, EBTState eBTState)
     {
-        Debug.Log($"stateTag {triggerTag} eBTState {eBTState}");
+       // Debug.Log($"stateTag {triggerTag} eBTState {eBTState}");
 
         foreach (KeyValuePair<string, BTState> keyValuePair in stateDic)
         {
@@ -207,7 +207,7 @@ public class BTRuntimeComponent : MonoBehaviour
             else if (checkState.state == EBTState.未开始)
             {
                 int checkCount = lastStateDic[nodeId].Count;
-                bool isExistFinish = false;
+                bool isExistFinish = false;//是否存在已经完成的前置状态
                 foreach (string lastStateId in lastStateDic[nodeId])
                 {
                     BTState lastState = stateDic[lastStateId];

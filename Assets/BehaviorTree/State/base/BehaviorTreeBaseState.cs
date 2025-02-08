@@ -51,10 +51,8 @@ public class BehaviorTreeBaseState
             }
         }
     }
-    /// <summary>
-    /// 初始化值
-    /// </summary>
-    public virtual void InitValue()
+
+    public void InitValueReflact()
     {
         if (runtime.lastStateDic[nodeId].Count == 0) return;
 
@@ -72,6 +70,39 @@ public class BehaviorTreeBaseState
                 fieldInfo.SetValue(this, inputInfo.value);
             }
         }
+    }
+
+    public void InitValue()
+    {
+        if (SetFieldValue() == ESetFieldValueResult.None)
+        { 
+            InitValueReflact(); 
+            return;
+        }
+
+        foreach (BehaviorTreeBaseState lastState in lastStates) 
+        {
+            foreach (BTOutputInfo inputInfo in lastState.output) 
+            {
+                if (inputInfo.value == null) continue;
+                bool isCommValue = string.IsNullOrEmpty(inputInfo.nodeId);
+                if (!isCommValue && nodeId != inputInfo.nodeId) continue;
+                string fieldName = inputInfo.toPortName;
+                object value = inputInfo.value;
+
+                // 如果子类没有实现，父类使用默认的赋值逻辑
+                ESetFieldValueResult result = SetFieldValue(fieldName, value);
+                if (result == ESetFieldValueResult.Fail) continue;
+            }
+        }
+         
+    }
+
+    // 默认的赋值逻辑
+    protected virtual ESetFieldValueResult SetFieldValue(string fieldName = default, object value = default)
+    {
+        // 默认实现: 不做任何操作，返回false表示无法处理该字段
+        return ESetFieldValueResult.None;
     }
     /// <summary>
     /// 保存状态
@@ -185,7 +216,7 @@ public class BehaviorTreeBaseState
     }
     /// <summary>
     /// 将操作传递到前置节点，直到检查到的节点符合条件
-    /// 复核条件的节点会被执行函数
+    /// 符合条件的节点会被执行函数
     /// </summary>
     /// <param name="action">操作函数</param>
     /// <param name="checkFunc">检查条件函数</param>
@@ -228,6 +259,12 @@ public class BehaviorTreeBaseState
     }
 }
 
+public enum ESetFieldValueResult 
+{
+    Succ,
+    Fail,
+    None,
+}
 [Serializable]
 public enum EBTState
 {

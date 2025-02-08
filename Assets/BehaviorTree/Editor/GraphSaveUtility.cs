@@ -216,6 +216,7 @@ public static class GraphSaveUtility
         string str1 = "";
         string str2 = "";
         string str3 = "";
+        string str4 = "";
         List<Port> oPorts = node.outputContainer.Query<Port>().ToList();
         List<Port> iPorts = node.inputContainer.Query<Port>().ToList();
         List<Port> ports = new List<Port>();
@@ -235,6 +236,11 @@ public static class GraphSaveUtility
             string oStrTemp3 = CSTemplate.initPropStr3;
             oStrTemp3 = oStrTemp3.Replace("#PortName#", port.portName);
             str3 += oStrTemp3;
+
+            string oStrTemp4 = CSTemplate.initPropStr4;
+            oStrTemp4 = oStrTemp4.Replace("#PortName#", port.portName);
+            oStrTemp4 = oStrTemp4.Replace("#PortType#", port.portType.FullName);
+            str4 += oStrTemp4;
         }
 
         bool isTrigger = CheckIsTrigger(node);
@@ -243,6 +249,7 @@ public static class GraphSaveUtility
         tempStr = tempStr.Replace("#PublicProperty#", str1);
         tempStr = tempStr.Replace("#SetPropValue#", str2);
         tempStr = tempStr.Replace("#SetObjPropValue#", str3);
+        tempStr = tempStr.Replace("#SetFieldValue#",str4);
 
         //写入文件
         string csSavePath = Application.dataPath.Replace("\\", "/") + "/BehaviorTree/State/" + className + ".cs";

@@ -77,6 +77,14 @@ public class #StateName#State : #BaseState#
             #SetPropValue#
         }
     }
+     protected override ESetFieldValueResult SetFieldValue(string fieldName, object value)
+    {
+        if (StringComparer.Ordinal.Equals(fieldName, default)) return ESetFieldValueResult.Succ;
+        #SetFieldValue#
+        else return ESetFieldValueResult.Fail;
+
+        return ESetFieldValueResult.Succ;
+    }
     public override void Save()
     {
         if (stateObj == null) return;
@@ -86,12 +94,20 @@ public class #StateName#State : #BaseState#
         #SetPropValue#
     }
     #endregion
+    
+    public override void OnEnter()
+    {
+        base.OnEnter();
+    }
 }
+
+#region AutoContext_BTStateObject
 public class #StateName#StateObj : #BTStateObject#
 {
     public EBTState state;
     #PublicProperty#
 }
+#endregion
 ";
     public const string initPropStr1 = @"
 public #PortType# #PortName#;";
@@ -99,6 +115,8 @@ public #PortType# #PortName#;";
 #PortName# = _stateObj.#PortName#;";
     public const string initPropStr3 = @"
 _stateObj.#PortName# = #PortName#;";
+    public const string initPropStr4 = @"
+else if (StringComparer.Ordinal.Equals(fieldName, ""#PortName#"") && value is #PortType# #PortName#Value) #PortName# = #PortName#Value;";
 
     public const string initPropStr2_trigger = "triggerTag = _stateObj.triggerTag;";
 }
