@@ -1,0 +1,144 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e72bb62fccd446148ad9fc3191eea09a, type: 3}
+  m_Name: drag-intertia
+  m_EditorClassIdentifier: 
+  nodeDatas:
+  - nodeName: Reset
+    guid: 8f8a0e90-f7bd-4a17-85fc-789faac5c56a
+    lastNodes:
+    - 4a6664eb-c781-4ea5-aede-8c5e4b03a571
+    output: []
+    nodePos: {x: 599, y: 35}
+    typeName: Deco_Reset
+    stateName: ResetState
+    stateParams: '{"hideFlags":0,"name":"","interruptTag":"","interruptible":false,"output":[],"enter":false,"state":0}'
+  - nodeName: LogicGate
+    guid: 4a6664eb-c781-4ea5-aede-8c5e4b03a571
+    lastNodes:
+    - 2c22140f-8077-4563-add6-ac65d45743af
+    - f8271e0f-0b94-4b26-87f4-378796648973
+    output:
+    - fromPortName: exit
+      toPortName: enter
+      nodeId: 8f8a0e90-f7bd-4a17-85fc-789faac5c56a
+    nodePos: {x: 382, y: 35}
+    typeName: Deco_LogicGate
+    stateName: LogicGateState
+    stateParams: '{"hideFlags":0,"name":"","interruptTag":"","interruptible":false,"output":[{"fromPortName":"exit","nodeId":"8f8a0e90-f7bd-4a17-85fc-789faac5c56a","toPortName":"enter","value":null}],"logicType":0,"state":0}'
+  - nodeName: DragInertia
+    guid: 2c22140f-8077-4563-add6-ac65d45743af
+    lastNodes:
+    - 0ca873d2-008f-4938-858b-9d02e354a55c
+    output:
+    - fromPortName: exit
+      toPortName: enter
+      nodeId: 4a6664eb-c781-4ea5-aede-8c5e4b03a571
+    nodePos: {x: 127, y: -37}
+    typeName: Behav_DragInertia
+    stateName: DragInertiaState
+    stateParams: '{"hideFlags":0,"name":"","interruptTag":"","interruptible":false,"output":[{"fromPortName":"exit","nodeId":"4a6664eb-c781-4ea5-aede-8c5e4b03a571","toPortName":"enter","value":null}],"AxisOffset_Z":30,"enter":false,"exit":false,"speed":10,"state":0,"targetObj":{"localPath":"item","pathType":0,"scenePath":"","selfPath":"self","target":null}}'
+  - nodeName: Reset
+    guid: 8e9bf436-0ff1-4a6e-ad8e-d4cb17161026
+    lastNodes:
+    - 0ca873d2-008f-4938-858b-9d02e354a55c
+    output: []
+    nodePos: {x: 136, y: 291}
+    typeName: Deco_Reset
+    stateName: ResetState
+    stateParams: '{"hideFlags":0,"name":"","interruptTag":"","interruptible":false,"output":[],"enter":false,"state":0}'
+  - nodeName: Reset
+    guid: 4762fa5f-f668-4948-b903-c63dfaf5f023
+    lastNodes:
+    - 0ca873d2-008f-4938-858b-9d02e354a55c
+    output: []
+    nodePos: {x: 136, y: 213}
+    typeName: Deco_Reset
+    stateName: ResetState
+    stateParams: '{"hideFlags":0,"name":"","interruptTag":"","interruptible":false,"output":[],"enter":false,"state":0}'
+  - nodeName: UIDragBranching
+    guid: 0ca873d2-008f-4938-858b-9d02e354a55c
+    lastNodes: []
+    output:
+    - fromPortName: drag
+      toPortName: enter
+      nodeId: f8271e0f-0b94-4b26-87f4-378796648973
+    - fromPortName: idel
+      toPortName: enter
+      nodeId: 8e9bf436-0ff1-4a6e-ad8e-d4cb17161026
+    - fromPortName: drag
+      toPortName: enter
+      nodeId: 2c22140f-8077-4563-add6-ac65d45743af
+    - fromPortName: endDrag
+      toPortName: enter
+      nodeId: 4762fa5f-f668-4948-b903-c63dfaf5f023
+    - fromPortName: beginDrag
+      toPortName: enter
+      nodeId: 3bd55be8-cb63-4b92-b4c5-15abf809d0a3
+    nodePos: {x: -186, y: 38}
+    typeName: Deco_UIDragBranching
+    stateName: UIDragBranchingState
+    stateParams: '{"hideFlags":0,"name":"","interruptTag":"","interruptible":false,"output":[{"fromPortName":"drag","nodeId":"f8271e0f-0b94-4b26-87f4-378796648973","toPortName":"enter","value":null},{"fromPortName":"idel","nodeId":"8e9bf436-0ff1-4a6e-ad8e-d4cb17161026","toPortName":"enter","value":null},{"fromPortName":"drag","nodeId":"2c22140f-8077-4563-add6-ac65d45743af","toPortName":"enter","value":null},{"fromPortName":"endDrag","nodeId":"4762fa5f-f668-4948-b903-c63dfaf5f023","toPortName":"enter","value":null},{"fromPortName":"beginDrag","nodeId":"3bd55be8-cb63-4b92-b4c5-15abf809d0a3","toPortName":"enter","value":null}],"beginDrag":false,"drag":false,"endDrag":false,"enter":false,"idel":true,"state":0,"targetObj":{"localPath":"self","pathType":0,"scenePath":"","selfPath":"self","target":null},"uiCameraObj":{"localPath":"","pathType":1,"scenePath":"UICamera","selfPath":"self","target":null}}'
+  - nodeName: Debug
+    guid: 3bd55be8-cb63-4b92-b4c5-15abf809d0a3
+    lastNodes:
+    - 0ca873d2-008f-4938-858b-9d02e354a55c
+    output: []
+    nodePos: {x: 127, y: -138}
+    typeName: Deco_Debug
+    stateName: DebugState
+    stateParams: '{"hideFlags":0,"name":"","interruptTag":"","interruptible":false,"output":[],"enter":false,"exit":false,"logStr":"--begin--","state":0}'
+  - nodeName: DragMove
+    guid: f8271e0f-0b94-4b26-87f4-378796648973
+    lastNodes:
+    - 0ca873d2-008f-4938-858b-9d02e354a55c
+    output:
+    - fromPortName: exit
+      toPortName: enter
+      nodeId: 4a6664eb-c781-4ea5-aede-8c5e4b03a571
+    nodePos: {x: 127, y: 112}
+    typeName: Behav_DragMove
+    stateName: DragMoveState
+    stateParams: '{"hideFlags":0,"name":"","interruptTag":"","interruptible":false,"output":[{"fromPortName":"exit","nodeId":"4a6664eb-c781-4ea5-aede-8c5e4b03a571","toPortName":"enter","value":null}],"enter":false,"exit":false,"state":0,"targetObj":{"localPath":"self","pathType":0,"scenePath":"","selfPath":"self","target":null}}'
+  edgeDatas:
+  - outPortNode: 0ca873d2-008f-4938-858b-9d02e354a55c
+    intputPortNode: f8271e0f-0b94-4b26-87f4-378796648973
+    outPortName: drag
+    intputPortName: enter
+  - outPortNode: 2c22140f-8077-4563-add6-ac65d45743af
+    intputPortNode: 4a6664eb-c781-4ea5-aede-8c5e4b03a571
+    outPortName: exit
+    intputPortName: enter
+  - outPortNode: f8271e0f-0b94-4b26-87f4-378796648973
+    intputPortNode: 4a6664eb-c781-4ea5-aede-8c5e4b03a571
+    outPortName: exit
+    intputPortName: enter
+  - outPortNode: 4a6664eb-c781-4ea5-aede-8c5e4b03a571
+    intputPortNode: 8f8a0e90-f7bd-4a17-85fc-789faac5c56a
+    outPortName: exit
+    intputPortName: enter
+  - outPortNode: 0ca873d2-008f-4938-858b-9d02e354a55c
+    intputPortNode: 8e9bf436-0ff1-4a6e-ad8e-d4cb17161026
+    outPortName: idel
+    intputPortName: enter
+  - outPortNode: 0ca873d2-008f-4938-858b-9d02e354a55c
+    intputPortNode: 2c22140f-8077-4563-add6-ac65d45743af
+    outPortName: drag
+    intputPortName: enter
+  - outPortNode: 0ca873d2-008f-4938-858b-9d02e354a55c
+    intputPortNode: 4762fa5f-f668-4948-b903-c63dfaf5f023
+    outPortName: endDrag
+    intputPortName: enter
+  - outPortNode: 0ca873d2-008f-4938-858b-9d02e354a55c
+    intputPortNode: 3bd55be8-cb63-4b92-b4c5-15abf809d0a3
+    outPortName: beginDrag
+    intputPortName: enter

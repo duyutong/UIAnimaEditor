@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e72bb62fccd446148ad9fc3191eea09a, type: 3}
+  m_Name: subBTTest
+  m_EditorClassIdentifier: 
+  nodeDatas:
+  - nodeName: Debug
+    guid: 45efc1f5-95cf-4317-9423-866857aa4fa7
+    lastNodes:
+    - 18a9ae02-f7db-4ec2-ab34-48ad489fb9eb
+    output: []
+    nodePos: {x: 502, y: 186}
+    typeName: Deco_Debug
+    stateName: DebugState
+    stateParams: '{"hideFlags":0,"name":"","interruptTag":"","interruptible":false,"output":[],"enter":false,"exit":false,"logStr":"----subBTTest
+      end!---","state":0}'
+  - nodeName: SubBTContainer
+    guid: 18a9ae02-f7db-4ec2-ab34-48ad489fb9eb
+    lastNodes:
+    - 469ac246-00cc-4708-8dcb-cfb024bc5416
+    output:
+    - fromPortName: exit
+      toPortName: enter
+      nodeId: 45efc1f5-95cf-4317-9423-866857aa4fa7
+    nodePos: {x: 259, y: 186}
+    typeName: Behav_SubBTContainer
+    stateName: SubBTContainerState
+    stateParams: '{"hideFlags":0,"name":"","interruptTag":"","interruptible":false,"output":[{"fromPortName":"exit","nodeId":"45efc1f5-95cf-4317-9423-866857aa4fa7","toPortName":"enter","value":null}],"container":{"assetPath":"Assets\/BehaviorTree\/BT\/subContainer.asset","loadFinish":null,"target":null},"enter":true,"exit":false,"state":0}'
+  - nodeName: Debug
+    guid: 469ac246-00cc-4708-8dcb-cfb024bc5416
+    lastNodes: []
+    output:
+    - fromPortName: exit
+      toPortName: enter
+      nodeId: 18a9ae02-f7db-4ec2-ab34-48ad489fb9eb
+    nodePos: {x: 9, y: 186}
+    typeName: Deco_Debug
+    stateName: DebugState
+    stateParams: '{"hideFlags":0,"name":"","interruptTag":"","interruptible":false,"output":[{"fromPortName":"exit","nodeId":"18a9ae02-f7db-4ec2-ab34-48ad489fb9eb","toPortName":"enter","value":null}],"enter":true,"exit":false,"logStr":"----subBTTest
+      start!---","state":0}'
+  edgeDatas:
+  - outPortNode: 469ac246-00cc-4708-8dcb-cfb024bc5416
+    intputPortNode: 18a9ae02-f7db-4ec2-ab34-48ad489fb9eb
+    outPortName: exit
+    intputPortName: enter
+  - outPortNode: 18a9ae02-f7db-4ec2-ab34-48ad489fb9eb
+    intputPortNode: 45efc1f5-95cf-4317-9423-866857aa4fa7
+    outPortName: exit
+    intputPortName: enter

@@ -1,0 +1,104 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e72bb62fccd446148ad9fc3191eea09a, type: 3}
+  m_Name: down&up
+  m_EditorClassIdentifier: 
+  nodeDatas:
+  - nodeName: Reset
+    guid: c0dd009b-7605-46a0-b61a-805c93a0f579
+    lastNodes:
+    - 5ca11195-4505-4574-949f-1d8722f136c2
+    output: []
+    nodePos: {x: 686, y: 17}
+    typeName: Deco_Reset
+    stateName: ResetState
+    stateParams: '{"hideFlags":0,"name":"","interruptTag":"","interruptible":false,"output":[],"enter":false,"state":0}'
+  - nodeName: ScaleAnima
+    guid: 5ca11195-4505-4574-949f-1d8722f136c2
+    lastNodes:
+    - e0f06215-a5a8-4575-96d5-025d3c9a1b8f
+    output:
+    - fromPortName: exit
+      toPortName: enter
+      nodeId: c0dd009b-7605-46a0-b61a-805c93a0f579
+    nodePos: {x: 459, y: 17}
+    typeName: Behav_ScaleAnima
+    stateName: ScaleAnimaState
+    stateParams: '{"hideFlags":0,"name":"","interruptTag":"","interruptible":false,"output":[{"fromPortName":"exit","nodeId":"c0dd009b-7605-46a0-b61a-805c93a0f579","toPortName":"enter","value":null}],"animaCurve":{"keys":[{"inTangent":1.24288368,"inWeight":0,"outTangent":1.24288368,"outWeight":0.333333343,"tangentMode":34,"time":0,"value":1,"weightedMode":0},{"inTangent":13.99788,"inWeight":0.447517455,"outTangent":13.99788,"outWeight":0.333333343,"tangentMode":0,"time":0.212383121,"value":1.26396751,"weightedMode":0},{"inTangent":-0.730081439,"inWeight":0.333333343,"outTangent":-0.730081439,"outWeight":0,"tangentMode":34,"time":0.3,"value":1.2,"weightedMode":0}],"postWrapMode":8,"preWrapMode":8},"enter":false,"exit":false,"state":0,"target":{"localPath":"item","pathType":0,"scenePath":"","selfPath":"self","target":null}}'
+  - nodeName: Reset
+    guid: 0cd22cf2-2e82-4415-a617-8a950bad14c5
+    lastNodes:
+    - e0f06215-a5a8-4575-96d5-025d3c9a1b8f
+    output: []
+    nodePos: {x: 459, y: 267}
+    typeName: Deco_Reset
+    stateName: ResetState
+    stateParams: '{"hideFlags":0,"name":"","interruptTag":"","interruptible":false,"output":[],"enter":false,"state":0}'
+  - nodeName: UIDownOrUpBranching
+    guid: e0f06215-a5a8-4575-96d5-025d3c9a1b8f
+    lastNodes: []
+    output:
+    - fromPortName: pointerDown
+      toPortName: enter
+      nodeId: 5ca11195-4505-4574-949f-1d8722f136c2
+    - fromPortName: idel
+      toPortName: enter
+      nodeId: 0cd22cf2-2e82-4415-a617-8a950bad14c5
+    - fromPortName: pointerUp
+      toPortName: enter
+      nodeId: e2235c5b-e644-422a-b069-3b137903bf52
+    nodePos: {x: 196, y: 142}
+    typeName: Deco_UIDownOrUpBranching
+    stateName: UIDownOrUpBranchingState
+    stateParams: '{"hideFlags":0,"name":"","interruptTag":"","interruptible":false,"output":[{"fromPortName":"pointerDown","nodeId":"5ca11195-4505-4574-949f-1d8722f136c2","toPortName":"enter","value":null},{"fromPortName":"idel","nodeId":"0cd22cf2-2e82-4415-a617-8a950bad14c5","toPortName":"enter","value":null},{"fromPortName":"pointerUp","nodeId":"e2235c5b-e644-422a-b069-3b137903bf52","toPortName":"enter","value":null}],"enter":false,"idel":true,"pointerDown":false,"pointerUp":false,"state":0,"targetObj":{"localPath":"self","pathType":0,"scenePath":"","selfPath":"self","target":null}}'
+  - nodeName: ScaleAnima
+    guid: e2235c5b-e644-422a-b069-3b137903bf52
+    lastNodes:
+    - e0f06215-a5a8-4575-96d5-025d3c9a1b8f
+    output:
+    - fromPortName: exit
+      toPortName: enter
+      nodeId: cff6956c-3ea7-4ebd-b8a2-073c03fd31f6
+    nodePos: {x: 459, y: 142}
+    typeName: Behav_ScaleAnima
+    stateName: ScaleAnimaState
+    stateParams: '{"hideFlags":0,"name":"","interruptTag":"","interruptible":false,"output":[{"fromPortName":"exit","nodeId":"cff6956c-3ea7-4ebd-b8a2-073c03fd31f6","toPortName":"enter","value":null}],"animaCurve":{"keys":[{"inTangent":-5.32137156,"inWeight":0,"outTangent":-5.32137156,"outWeight":0.333333343,"tangentMode":34,"time":0,"value":1.5,"weightedMode":0},{"inTangent":-2.34768677,"inWeight":0.333333343,"outTangent":-2.34768677,"outWeight":0.333333343,"tangentMode":34,"time":0.103846386,"value":0.9473948,"weightedMode":0},{"inTangent":0.883947968,"inWeight":0.333333343,"outTangent":0.883947968,"outWeight":0.333333343,"tangentMode":0,"time":0.227701113,"value":1.02492762,"weightedMode":0},{"inTangent":0,"inWeight":0.333333343,"outTangent":0,"outWeight":0.333333343,"tangentMode":136,"time":0.3,"value":1,"weightedMode":0}],"postWrapMode":8,"preWrapMode":8},"enter":false,"exit":false,"state":0,"target":{"localPath":"item","pathType":0,"scenePath":"","selfPath":"self","target":null}}'
+  - nodeName: Reset
+    guid: cff6956c-3ea7-4ebd-b8a2-073c03fd31f6
+    lastNodes:
+    - e2235c5b-e644-422a-b069-3b137903bf52
+    output: []
+    nodePos: {x: 686, y: 142}
+    typeName: Deco_Reset
+    stateName: ResetState
+    stateParams: '{"hideFlags":0,"name":"","interruptTag":"","interruptible":false,"output":[],"enter":false,"state":0}'
+  edgeDatas:
+  - outPortNode: e0f06215-a5a8-4575-96d5-025d3c9a1b8f
+    intputPortNode: 5ca11195-4505-4574-949f-1d8722f136c2
+    outPortName: pointerDown
+    intputPortName: enter
+  - outPortNode: e0f06215-a5a8-4575-96d5-025d3c9a1b8f
+    intputPortNode: 0cd22cf2-2e82-4415-a617-8a950bad14c5
+    outPortName: idel
+    intputPortName: enter
+  - outPortNode: 5ca11195-4505-4574-949f-1d8722f136c2
+    intputPortNode: c0dd009b-7605-46a0-b61a-805c93a0f579
+    outPortName: exit
+    intputPortName: enter
+  - outPortNode: e0f06215-a5a8-4575-96d5-025d3c9a1b8f
+    intputPortNode: e2235c5b-e644-422a-b069-3b137903bf52
+    outPortName: pointerUp
+    intputPortName: enter
+  - outPortNode: e2235c5b-e644-422a-b069-3b137903bf52
+    intputPortNode: cff6956c-3ea7-4ebd-b8a2-073c03fd31f6
+    outPortName: exit
+    intputPortName: enter
