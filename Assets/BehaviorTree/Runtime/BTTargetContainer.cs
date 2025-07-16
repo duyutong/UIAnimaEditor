@@ -31,7 +31,7 @@ public class BTTargetContainer
     private void OnLoadDone(AsyncOperationHandle<BTContainer> handle)
     {
         if (handle.Status == AsyncOperationStatus.Succeeded) target = handle.Result;
-        else Debug.LogError("����ʧ�ܣ�" + assetPath);
+        else Debug.LogError("¼ÓÔØÊ§°Ü£º" + assetPath);
 
         loadFinish?.Invoke(handle.Status == AsyncOperationStatus.Succeeded);
         loadFinish = null;

@@ -136,10 +136,10 @@ public class SnapArea2DState : BehaviorTreeBaseState
         StartSnap();
     }
 
-    private Vector3 startPos;          // ³õÊ¼Î»ÖÃ
-    private Vector3 targetPos;         // snapRect µÄÖĞĞÄ
-    private float timer = 0f;          // µ±Ç°¶¯»­¼ÆÊ±
-    private bool isAnimating = false;  // ÊÇ·ñÔÚ¶¯»­ÖĞ
+    private Vector3 startPos;          // åˆå§‹ä½ç½®
+    private Vector3 targetPos;         // snapRect çš„ä¸­å¿ƒ
+    private float timer = 0f;          // å½“å‰åŠ¨ç”»è®¡æ—¶
+    private bool isAnimating = false;  // æ˜¯å¦åœ¨åŠ¨ç”»ä¸­
     public override void OnUpdate()
     {
         base.OnUpdate();
@@ -149,18 +149,18 @@ public class SnapArea2DState : BehaviorTreeBaseState
             timer += Time.deltaTime;
             float t = Mathf.Clamp01(timer / animaTime);
 
-            // ²åÖµÒÆ¶¯
+            // æ’å€¼ç§»åŠ¨
             checkTrans.position = Vector3.Lerp(startPos, targetPos, t);
 
             if (t >= 1f)
             {
-                isAnimating = false; // ¶¯»­Íê³É
+                isAnimating = false; // åŠ¨ç”»å®Œæˆ
                 OnExit();
             }
         }
     }
     /// <summary>
-    /// ¿ªÊ¼Ö´ĞĞÒÆ¶¯¶¯»­
+    /// å¼€å§‹æ‰§è¡Œç§»???
     /// </summary>
     private void StartSnap()
     {
@@ -173,13 +173,13 @@ public class SnapArea2DState : BehaviorTreeBaseState
     }
 
     /// <summary>
-    /// »ñÈ¡ RectTransform µÄÊÀ½çÖĞĞÄµã
+    /// è·å– RectTransform çš„ä¸–ç•Œä¸­å¿ƒç‚¹
     /// </summary>
     private Vector3 GetRectWorldCenter(RectTransform rect)
     {
         Vector3[] corners = new Vector3[4];
         rect.GetWorldCorners(corners);
-        return (corners[0] + corners[2]) / 2f; // ×óÏÂ½Ç + ÓÒÉÏ½Ç / 2
+        return (corners[0] + corners[2]) / 2f; // å·¦ä¸‹è§’ + å³ä¸Šè§’ / 2
     }
 }
 

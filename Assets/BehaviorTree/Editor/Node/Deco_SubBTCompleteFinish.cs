@@ -2,10 +2,10 @@
 using System;
 using UnityEngine;
 using UnityEditor.Experimental.GraphView;
-public class Behav_SubBTCompleteFinish : BehaviorNode
+public class Deco_SubBTCompleteFinish : DecoratorNode
 {
     public override string stateName => "SubBTCompleteFinishState";
-    public Behav_SubBTCompleteFinish() : base() 
+    public Deco_SubBTCompleteFinish() : base() 
     {
         title = "SubBTCompleteFinish";
         

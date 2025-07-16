@@ -10,21 +10,24 @@ public class BTObjectPool
     {
         if (string.IsNullOrEmpty(className))
         {
-            Debug.LogError("ÀàÃû²»ÄÜÎª¿Õ¡£");
+            Debug.LogError("ç±»åä¸èƒ½ä¸ºç©ºã€‚");
             return null;
         }
 
-        // ¼ì²é³ØÖĞÊÇ·ñÒÑÓĞ¸ÃÀàµÄ¶ÔÏó
+        // æ£€æŸ¥æ± ä¸­æ˜¯å¦å·²æœ‰è¯¥ç±»çš„å¯¹è±¡
         if (pool.TryGetValue(className, out var objectQueue) && objectQueue.Count > 0)
         {
-            return objectQueue.Dequeue();
+            var obj = objectQueue.Dequeue();
+            (obj as BehaviorTreeBaseState)?.OnRefresh();
+
+            return obj;
         }
 
-        // Èç¹û³ØÖĞÃ»ÓĞ£¬Ôò´´½¨ĞÂ¶ÔÏó
+        // å¦‚æœæ± ä¸­æ²¡æœ‰ï¼Œåˆ™åˆ›å»ºæ–°å¯¹è±¡
         var type = Type.GetType(className);
         if (type == null)
         {
-            Debug.LogError($"Î´ÕÒµ½Àà {className}¡£");
+            Debug.LogError($"æœªæ‰¾åˆ°ç±» {className}ã€‚");
             return null;
         }
 
@@ -33,10 +36,12 @@ public class BTObjectPool
     public static T GetObject<T>(Type type) where T:class 
     {
         string className = type.FullName;
-        // ¼ì²é³ØÖĞÊÇ·ñÒÑÓĞ¸ÃÀàµÄ¶ÔÏó
+        // æ£€æŸ¥æ± ä¸­æ˜¯å¦å·²æœ‰è¯¥ç±»çš„å¯¹è±¡
         if (pool.TryGetValue(className, out var objectQueue) && objectQueue.Count > 0)
         {
-            return objectQueue.Dequeue() as T;
+            T obj = objectQueue.Dequeue() as T;
+            (obj as BehaviorTreeBaseState)?.OnRefresh();
+            return obj;
         }
 
         return Activator.CreateInstance(type) as T;
@@ -44,17 +49,21 @@ public class BTObjectPool
     public static T GetObject<T>() where T : class
     {
         string className = typeof(T).FullName;
-        return GetObject(className) as T;
+
+        T obj = GetObject(className) as T;
+        (obj as BehaviorTreeBaseState)?.OnRefresh();
+
+        return obj;
     }
     /// <summary>
-    /// ½«¶ÔÏó¹é»¹µ½¶ÔÏó³Ø¡£
+    /// å°†å¯¹è±¡å½’è¿˜åˆ°å¯¹è±¡æ± ã€‚
     /// </summary>
-    /// <param name="obj">Òª¹é»¹µÄ¶ÔÏó</param>
+    /// <param name="obj">è¦å½’è¿˜çš„å¯¹è±¡</param>
     public static void ReturnObject(object obj)
     {
         if (obj == null)
         {
-            Debug.LogError("¹é»¹µÄ¶ÔÏó²»ÄÜÎª¿Õ¡£");
+            Debug.LogError("å½’è¿˜çš„å¯¹è±¡ä¸èƒ½ä¸ºç©ºã€‚");
             return;
         }
 
@@ -69,7 +78,7 @@ public class BTObjectPool
     }
 
     /// <summary>
-    /// Çå¿Õ¶ÔÏó³Ø¡£
+    /// æ¸…ç©ºå¯¹è±¡æ± ã€‚
     /// </summary>
     public static void ClearPool()
     {

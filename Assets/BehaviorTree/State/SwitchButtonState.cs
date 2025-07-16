@@ -80,6 +80,11 @@ public class SwitchButtonState : BehaviorTreeBaseState
             button.onClick.AddListener(() => OnExecute());
         }
     }
+    public override void OnRefresh()
+    {
+        enter = _stateObj.enter;
+        base.OnRefresh();
+    }
     public override void OnExecute()
     {
         base.OnExecute();

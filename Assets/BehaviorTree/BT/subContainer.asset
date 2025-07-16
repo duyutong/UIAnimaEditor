@@ -14,83 +14,123 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeDatas:
   - nodeName: Debug
-    guid: 2e0efd3b-741f-49d8-bf6c-5576587945bc
+    guid: 8f6921a5-a0f2-4987-85d1-0659994a59fc
     lastNodes:
-    - 9985b0aa-7f56-4aa9-a1d9-2cfc6831d698
+    - f1380855-cfc1-427e-9ede-b18606e03036
     output:
     - fromPortName: exit
       toPortName: enter
-      nodeId: 84dcda64-9611-432d-955a-b4cff3c43c97
-    nodePos: {x: -34, y: 62}
+      nodeId: c9ad5b7e-5c42-4724-84a3-a8610d5cc5d8
+    nodePos: {x: 748, y: 224}
     typeName: Deco_Debug
     stateName: DebugState
-    stateParams: '{"hideFlags":0,"name":"","interruptTag":"","interruptible":false,"output":[{"fromPortName":"exit","nodeId":"84dcda64-9611-432d-955a-b4cff3c43c97","toPortName":"enter","value":null}],"enter":false,"exit":false,"logStr":"---debug1---","state":0}'
+    stateParams: "{\"hideFlags\":0,\"name\":\"\",\"interruptTag\":\"\",\"interruptible\":false,\"output\":[{\"fromPortName\":\"exit\",\"nodeId\":\"c9ad5b7e-5c42-4724-84a3-a8610d5cc5d8\",\"toPortName\":\"enter\",\"value\":null}],\"enter\":false,\"exit\":false,\"logStr\":\"subContainer--\u5206\u652F1\",\"state\":0}"
   - nodeName: Debug
-    guid: 45b514e4-f01f-4d14-812a-eb63c2e4cdf1
+    guid: d46573e5-9064-41ca-b1d8-fba31c035c56
     lastNodes:
-    - 9985b0aa-7f56-4aa9-a1d9-2cfc6831d698
+    - f1380855-cfc1-427e-9ede-b18606e03036
     output:
     - fromPortName: exit
       toPortName: enter
-      nodeId: 84dcda64-9611-432d-955a-b4cff3c43c97
-    nodePos: {x: -34, y: -137}
+      nodeId: c9ad5b7e-5c42-4724-84a3-a8610d5cc5d8
+    nodePos: {x: 748, y: 426}
     typeName: Deco_Debug
     stateName: DebugState
-    stateParams: '{"hideFlags":0,"name":"","interruptTag":"","interruptible":false,"output":[{"fromPortName":"exit","nodeId":"84dcda64-9611-432d-955a-b4cff3c43c97","toPortName":"enter","value":null}],"enter":false,"exit":false,"logStr":"---debug2---","state":0}'
-  - nodeName: SubBTCompleteFinish
-    guid: 424026df-c966-4d3b-8bd4-f1ab78ee0903
+    stateParams: "{\"hideFlags\":0,\"name\":\"\",\"interruptTag\":\"\",\"interruptible\":false,\"output\":[{\"fromPortName\":\"exit\",\"nodeId\":\"c9ad5b7e-5c42-4724-84a3-a8610d5cc5d8\",\"toPortName\":\"enter\",\"value\":null}],\"enter\":false,\"exit\":false,\"logStr\":\"subContainer--\u5206\u652F3\",\"state\":0}"
+  - nodeName: Debug
+    guid: 3f796c2f-a595-4d5d-a5fe-8b047c04b09d
     lastNodes:
-    - 84dcda64-9611-432d-955a-b4cff3c43c97
+    - f1380855-cfc1-427e-9ede-b18606e03036
+    output:
+    - fromPortName: exit
+      toPortName: enter
+      nodeId: c9ad5b7e-5c42-4724-84a3-a8610d5cc5d8
+    nodePos: {x: 748, y: 325}
+    typeName: Deco_Debug
+    stateName: DebugState
+    stateParams: "{\"hideFlags\":0,\"name\":\"\",\"interruptTag\":\"\",\"interruptible\":false,\"output\":[{\"fromPortName\":\"exit\",\"nodeId\":\"c9ad5b7e-5c42-4724-84a3-a8610d5cc5d8\",\"toPortName\":\"enter\",\"value\":null}],\"enter\":false,\"exit\":false,\"logStr\":\"subContainer--\u5206\u652F2\",\"state\":0}"
+  - nodeName: SubBTCompleteFinish
+    guid: 07decb1e-138a-405c-a5b1-ef751ccf2ec0
+    lastNodes:
+    - eeae92f4-f86a-457a-b2fd-1e73c27f81d3
     output: []
-    nodePos: {x: 415, y: -39}
-    typeName: Behav_SubBTCompleteFinish
+    nodePos: {x: 1401, y: 325}
+    typeName: Deco_SubBTCompleteFinish
     stateName: SubBTCompleteFinishState
     stateParams: '{"hideFlags":0,"name":"","interruptTag":"","interruptible":false,"output":[],"enter":false,"state":0}'
   - nodeName: LogicGate
-    guid: 84dcda64-9611-432d-955a-b4cff3c43c97
+    guid: c9ad5b7e-5c42-4724-84a3-a8610d5cc5d8
     lastNodes:
-    - 45b514e4-f01f-4d14-812a-eb63c2e4cdf1
-    - 2e0efd3b-741f-49d8-bf6c-5576587945bc
+    - 8f6921a5-a0f2-4987-85d1-0659994a59fc
+    - 3f796c2f-a595-4d5d-a5fe-8b047c04b09d
+    - d46573e5-9064-41ca-b1d8-fba31c035c56
     output:
     - fromPortName: exit
       toPortName: enter
-      nodeId: 424026df-c966-4d3b-8bd4-f1ab78ee0903
-    nodePos: {x: 202, y: -39}
+      nodeId: eeae92f4-f86a-457a-b2fd-1e73c27f81d3
+    nodePos: {x: 998, y: 325}
     typeName: Deco_LogicGate
     stateName: LogicGateState
-    stateParams: '{"hideFlags":0,"name":"","interruptTag":"","interruptible":false,"output":[{"fromPortName":"exit","nodeId":"424026df-c966-4d3b-8bd4-f1ab78ee0903","toPortName":"enter","value":null}],"logicType":1,"state":0}'
+    stateParams: '{"hideFlags":0,"name":"","interruptTag":"","interruptible":false,"output":[{"fromPortName":"exit","nodeId":"eeae92f4-f86a-457a-b2fd-1e73c27f81d3","toPortName":"enter","value":null}],"logicType":1,"state":0}'
+  - nodeName: Debug
+    guid: eeae92f4-f86a-457a-b2fd-1e73c27f81d3
+    lastNodes:
+    - c9ad5b7e-5c42-4724-84a3-a8610d5cc5d8
+    output:
+    - fromPortName: exit
+      toPortName: enter
+      nodeId: 07decb1e-138a-405c-a5b1-ef751ccf2ec0
+    nodePos: {x: 1200, y: 325}
+    typeName: Deco_Debug
+    stateName: DebugState
+    stateParams: '{"hideFlags":0,"name":"","interruptTag":"","interruptible":false,"output":[{"fromPortName":"exit","nodeId":"07decb1e-138a-405c-a5b1-ef751ccf2ec0","toPortName":"enter","value":null}],"enter":false,"exit":false,"logStr":"subContainer--finish","state":0}'
   - nodeName: RandomBranching
-    guid: 9985b0aa-7f56-4aa9-a1d9-2cfc6831d698
+    guid: f1380855-cfc1-427e-9ede-b18606e03036
     lastNodes: []
     output:
     - fromPortName: exit
       toPortName: enter
-      nodeId: 45b514e4-f01f-4d14-812a-eb63c2e4cdf1
+      nodeId: 8f6921a5-a0f2-4987-85d1-0659994a59fc
     - fromPortName: exit
       toPortName: enter
-      nodeId: 2e0efd3b-741f-49d8-bf6c-5576587945bc
-    nodePos: {x: -291, y: -39}
+      nodeId: 3f796c2f-a595-4d5d-a5fe-8b047c04b09d
+    - fromPortName: exit
+      toPortName: enter
+      nodeId: d46573e5-9064-41ca-b1d8-fba31c035c56
+    nodePos: {x: 495, y: 325}
     typeName: Deco_RandomBranching
     stateName: RandomBranchingState
-    stateParams: '{"hideFlags":0,"name":"","interruptTag":"","interruptible":false,"output":[{"fromPortName":"exit","nodeId":"45b514e4-f01f-4d14-812a-eb63c2e4cdf1","toPortName":"enter","value":null},{"fromPortName":"exit","nodeId":"2e0efd3b-741f-49d8-bf6c-5576587945bc","toPortName":"enter","value":null}],"enter":false,"exit":false,"parallelCount":1,"state":0}'
+    stateParams: '{"hideFlags":0,"name":"","interruptTag":"","interruptible":false,"output":[{"fromPortName":"exit","nodeId":"8f6921a5-a0f2-4987-85d1-0659994a59fc","toPortName":"enter","value":null},{"fromPortName":"exit","nodeId":"3f796c2f-a595-4d5d-a5fe-8b047c04b09d","toPortName":"enter","value":null},{"fromPortName":"exit","nodeId":"d46573e5-9064-41ca-b1d8-fba31c035c56","toPortName":"enter","value":null}],"enter":true,"exit":false,"parallelCount":1,"state":0}'
   edgeDatas:
-  - outPortNode: 9985b0aa-7f56-4aa9-a1d9-2cfc6831d698
-    intputPortNode: 45b514e4-f01f-4d14-812a-eb63c2e4cdf1
+  - outPortNode: f1380855-cfc1-427e-9ede-b18606e03036
+    intputPortNode: 8f6921a5-a0f2-4987-85d1-0659994a59fc
     outPortName: exit
     intputPortName: enter
-  - outPortNode: 9985b0aa-7f56-4aa9-a1d9-2cfc6831d698
-    intputPortNode: 2e0efd3b-741f-49d8-bf6c-5576587945bc
+  - outPortNode: f1380855-cfc1-427e-9ede-b18606e03036
+    intputPortNode: 3f796c2f-a595-4d5d-a5fe-8b047c04b09d
     outPortName: exit
     intputPortName: enter
-  - outPortNode: 45b514e4-f01f-4d14-812a-eb63c2e4cdf1
-    intputPortNode: 84dcda64-9611-432d-955a-b4cff3c43c97
+  - outPortNode: f1380855-cfc1-427e-9ede-b18606e03036
+    intputPortNode: d46573e5-9064-41ca-b1d8-fba31c035c56
     outPortName: exit
     intputPortName: enter
-  - outPortNode: 2e0efd3b-741f-49d8-bf6c-5576587945bc
-    intputPortNode: 84dcda64-9611-432d-955a-b4cff3c43c97
+  - outPortNode: 8f6921a5-a0f2-4987-85d1-0659994a59fc
+    intputPortNode: c9ad5b7e-5c42-4724-84a3-a8610d5cc5d8
     outPortName: exit
     intputPortName: enter
-  - outPortNode: 84dcda64-9611-432d-955a-b4cff3c43c97
-    intputPortNode: 424026df-c966-4d3b-8bd4-f1ab78ee0903
+  - outPortNode: 3f796c2f-a595-4d5d-a5fe-8b047c04b09d
+    intputPortNode: c9ad5b7e-5c42-4724-84a3-a8610d5cc5d8
+    outPortName: exit
+    intputPortName: enter
+  - outPortNode: d46573e5-9064-41ca-b1d8-fba31c035c56
+    intputPortNode: c9ad5b7e-5c42-4724-84a3-a8610d5cc5d8
+    outPortName: exit
+    intputPortName: enter
+  - outPortNode: c9ad5b7e-5c42-4724-84a3-a8610d5cc5d8
+    intputPortNode: eeae92f4-f86a-457a-b2fd-1e73c27f81d3
+    outPortName: exit
+    intputPortName: enter
+  - outPortNode: eeae92f4-f86a-457a-b2fd-1e73c27f81d3
+    intputPortNode: 07decb1e-138a-405c-a5b1-ef751ccf2ec0
     outPortName: exit
     intputPortName: enter

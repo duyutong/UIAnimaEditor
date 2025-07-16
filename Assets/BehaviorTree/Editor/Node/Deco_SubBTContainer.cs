@@ -1,11 +1,11 @@
-
+﻿
 using System;
 using UnityEngine;
 using UnityEditor.Experimental.GraphView;
-public class Behav_SubBTContainer : BehaviorNode
+public class Deco_SubBTContainer : DecoratorNode
 {
     public override string stateName => "SubBTContainerState";
-    public Behav_SubBTContainer() : base() 
+    public Deco_SubBTContainer() : base() 
     {
         title = "SubBTContainer";
         

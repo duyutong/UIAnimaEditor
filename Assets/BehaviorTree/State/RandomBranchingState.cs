@@ -81,7 +81,7 @@ public class RandomBranchingState : BehaviorTreeBaseState
     public override void OnEnter()
     {
         base.OnEnter();
-
+        Debug.Log("--- RandomBranchingState OnEnter ---");
         if (nextStates.Count > 0)
         {
             List<int> randomNumbers = GenerateRandomNumbers(0, nextStates.Count, parallelCount);

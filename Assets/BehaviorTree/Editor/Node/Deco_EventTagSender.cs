@@ -2,10 +2,10 @@
 using System;
 using UnityEngine;
 using UnityEditor.Experimental.GraphView;
-public class Behav_EventTagSender : BehaviorNode
+public class Deco_EventTagSender : DecoratorNode
 {
     public override string stateName => "EventTagSenderState";
-    public Behav_EventTagSender() : base() 
+    public Deco_EventTagSender() : base() 
     {
         title = "EventTagSender";
         

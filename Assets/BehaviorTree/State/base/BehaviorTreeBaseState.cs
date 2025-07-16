@@ -106,11 +106,19 @@ public class BehaviorTreeBaseState
         }
          
     }
-
-    // 默认的赋值逻辑
+    /// <summary>
+    /// 默认的字段赋值逻辑。可由子类重写以实现具体的赋值操作。
+    /// </summary>
+    /// <param name="fieldName">字段名称。</param>
+    /// <param name="value">要设置的字段值。</param>
+    /// <returns>
+    /// 返回 <see cref="ESetFieldValueResult.Succ"/> 表示成功处理该字段；
+    /// 返回 <see cref="ESetFieldValueResult.Fail"/> 表示字段无法处理；
+    /// 返回 <see cref="ESetFieldValueResult.None"/> 表示未进行任何操作（默认行为）。
+    /// </returns>
     protected virtual ESetFieldValueResult SetFieldValue(string fieldName = default, object value = default)
     {
-        // 默认实现: 不做任何操作，返回Fail表示无法处理该字段
+        // 默认实现：不处理任何字段，返回 None
         return ESetFieldValueResult.None;
     }
     /// <summary>
