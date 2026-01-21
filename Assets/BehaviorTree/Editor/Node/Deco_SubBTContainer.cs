@@ -2,6 +2,8 @@
 using System;
 using UnityEngine;
 using UnityEditor.Experimental.GraphView;
+using System.Threading.Tasks;
+using UnityEngine.UIElements;
 public class Deco_SubBTContainer : DecoratorNode
 {
     public override string stateName => "SubBTContainerState";
@@ -22,5 +24,22 @@ public class Deco_SubBTContainer : DecoratorNode
         port_exit.portName = "exit";
         outputContainer.Add(port_exit);
 
+        RegisterCallback<MouseDownEvent>(OnMouseDownEvent);
+    }
+
+    private void OnMouseDownEvent(MouseDownEvent evt)
+    {
+        if(evt.button == (int)MouseButton.LeftMouse && evt.clickCount == 2)
+        {
+            SubBTContainerState state = btState as SubBTContainerState;
+            if (state == null) return;
+            if (state.container == null) return;
+            if (state.container.target == null) return;
+
+            BTContainer container = state.container.target;
+            BehaviourTreeEditor.OpenBTAsset(container);
+            
+            evt.StopPropagation();
+        }
     }
 }

@@ -359,6 +359,39 @@ namespace D.Unity3dTools
             }
             return false;
         }
+        /// <summary>
+        /// 使用反射为目标对象设置指定字段或属性的值。
+        /// </summary>
+        /// <param name="target">目标对象，必须是类的实例，不能为 null。</param>
+        /// <param name="memberName">字段或属性的名称，区分大小写。</param>
+        /// <param name="value">要赋予字段或属性的值，类型将自动转换为目标成员的类型。</param>
+        /// <returns>如果设置成功，返回 true；如果找不到对应的字段或属性，或设置失败，返回 false。</returns>
+        public static bool SetMemberValue(this object target, string memberName, object value)
+        {
+            if (target == null || string.IsNullOrEmpty(memberName))
+                return false;
+
+            var type = target.GetType();
+
+            // 先尝试设置属性
+            PropertyInfo prop = type.GetProperty(memberName, BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+            if (prop != null && prop.CanWrite)
+            {
+                prop.SetValue(target, Convert.ChangeType(value, prop.PropertyType));
+                return true;
+            }
+
+            // 如果属性没找到，尝试设置字段
+            FieldInfo field = type.GetField(memberName, BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+            if (field != null)
+            {
+                field.SetValue(target, Convert.ChangeType(value, field.FieldType));
+                return true;
+            }
+
+            // 找不到属性或字段
+            return false;
+        }
         #endregion
 
         #region TimeCountdown

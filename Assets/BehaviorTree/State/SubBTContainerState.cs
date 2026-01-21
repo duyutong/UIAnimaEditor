@@ -119,13 +119,10 @@ public class SubBTContainerState : BTState
     }
     private void LoadStates()
     {
-        if (subRuntime == null)
-        {
-            subRuntime = new BTRuntime();
-            subRuntime.gameObject = runtime.gameObject;
-            subRuntime.transform = runtime.transform;
-            subRuntime.container = container.target;
-        }
+        subRuntime ??= new BTRuntime();
+        subRuntime.gameObject = runtime.gameObject;
+        subRuntime.transform = runtime.transform;
+        subRuntime.container = container.target;
         SubRuntimeLoadState();
     }
 

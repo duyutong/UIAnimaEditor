@@ -16,12 +16,10 @@ public class BehaviourTreeEditor : EditorWindow
     private Button loadBtn;
     private TextField nameTextField;
     private ObjectField treeField;
-    private static BehaviourTreeEditor self;
     [MenuItem("BehaviourTreeEditor/Open BTEditor")]
     public static BehaviourTreeEditor OpenWindow()
     {
         BehaviourTreeEditor wnd = CreateWindow<BehaviourTreeEditor>("BehaviourTreeEditor"); 
-        self = wnd;
         return wnd;
     }
     public void CreateGUI()
@@ -77,13 +75,13 @@ public class BehaviourTreeEditor : EditorWindow
     }
     public static void OpenBTAsset(BTContainer container) 
     {
-        OpenWindow();
-        self.treeField.SetValueWithoutNotify(container);
+        BehaviourTreeEditor treeEditor = OpenWindow();
+        treeEditor.treeField.SetValueWithoutNotify(container);
 
         if (container == null) return;
         if (container.nodeDatas.Count == 0) Debug.Log("没有数据！");
-        self.nameTextField.value = container.name;
-        self.behaviorTreeView.LoadData(container);
+        treeEditor.nameTextField.value = container.name;
+        treeEditor.behaviorTreeView.LoadData(container);
     }
     private void OnClickLoadBtn()
     {
