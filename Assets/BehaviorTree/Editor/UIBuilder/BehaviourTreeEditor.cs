@@ -19,7 +19,7 @@ public class BehaviourTreeEditor : EditorWindow
     [MenuItem("BehaviourTreeEditor/Open BTEditor")]
     public static BehaviourTreeEditor OpenWindow()
     {
-        BehaviourTreeEditor wnd = CreateWindow<BehaviourTreeEditor>("BehaviourTreeEditor"); 
+        BehaviourTreeEditor wnd = CreateWindow<BehaviourTreeEditor>("BehaviourTreeEditor");
         return wnd;
     }
     public void CreateGUI()
@@ -67,21 +67,16 @@ public class BehaviourTreeEditor : EditorWindow
         behaviorTreeView.ClearAllNodeAndEdge();
         bool isPlaying = Application.isPlaying;
         if (isPlaying) behaviorTreeView.LoadRuntimeData(runtime);
-        else behaviorTreeView.LoadData(container,runtime);
+        else behaviorTreeView.LoadData(container, runtime);
     }
-    private void OnUnselectAction()
+    public void OpenBTAsset(BTContainer container)
     {
-        inspector.style.display = DisplayStyle.None;
-    }
-    public static void OpenBTAsset(BTContainer container) 
-    {
-        BehaviourTreeEditor treeEditor = OpenWindow();
-        treeEditor.treeField.SetValueWithoutNotify(container);
+        treeField.SetValueWithoutNotify(container);
 
         if (container == null) return;
         if (container.nodeDatas.Count == 0) Debug.Log("没有数据！");
-        treeEditor.nameTextField.value = container.name;
-        treeEditor.behaviorTreeView.LoadData(container);
+        nameTextField.value = container.name;
+        behaviorTreeView.LoadData(container);
     }
     private void OnClickLoadBtn()
     {
@@ -100,5 +95,9 @@ public class BehaviourTreeEditor : EditorWindow
         //Debug.Log("BehaviourTreeEditor -> " + node.title);
         inspector.style.display = DisplayStyle.Flex;
         inspectorView.UpdateSelection(node);
+    }
+    private void OnUnselectAction()
+    {
+        inspector.style.display = DisplayStyle.None;
     }
 }

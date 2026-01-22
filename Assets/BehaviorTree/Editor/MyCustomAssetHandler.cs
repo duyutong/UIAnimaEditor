@@ -14,7 +14,8 @@ public class MyCustomAssetHandler : AssetPostprocessor
         BTContainer container = obj as BTContainer;
         if (container!=null) 
         {
-            BehaviourTreeEditor.OpenBTAsset(container);
+            BehaviourTreeEditor editor = BehaviourTreeEditor.OpenWindow();
+            editor.OpenBTAsset(container);
             return true;
         }
         return false;

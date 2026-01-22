@@ -5,9 +5,8 @@ using System.Reflection;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
-using Edge = UnityEditor.Experimental.GraphView.Edge;
 using BTBaseNode = BehaviorTreeBaseNode;
-using UnityEditor;
+using Edge = UnityEditor.Experimental.GraphView.Edge;
 
 public class BehaviorTreeView : GraphView
 {
