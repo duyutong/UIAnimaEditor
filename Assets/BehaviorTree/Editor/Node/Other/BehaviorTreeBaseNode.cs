@@ -1,19 +1,19 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
-using UnityEditor.Experimental.GraphView;
-using Node = UnityEditor.Experimental.GraphView.Node;
-using Unity.VisualScripting;
-using UnityEngine.UIElements;
+﻿using D.Unity3dTools;
 using System;
-using static UnityEditor.Experimental.GraphView.Port;
-using D.Unity3dTools;
-using UnityEngine.Events;
+using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
+using UnityEngine;
+using UnityEngine.UIElements;
+using Capacity = UnityEditor.Experimental.GraphView.Port.Capacity;
+using Node = UnityEditor.Experimental.GraphView.Node;
+using Port = UnityEditor.Experimental.GraphView.Port;
 
 /// <summary>
 /// 行为树基础节点类
 /// </summary>
 [Serializable]
-public abstract class BehaviorTreeBaseNode : Node
+public abstract class BehaviorTreeBaseNode : Node   
 {
     /// <summary>
     /// 获取节点前缀
@@ -43,6 +43,7 @@ public abstract class BehaviorTreeBaseNode : Node
         viewDataKey = guid;
     }
 
+    public void InitState() => btState ??= new DebugState();
     public List<string> GetNodeList()
     {
         List<string> lastNodesId = new List<string> { guid };
@@ -162,14 +163,6 @@ public abstract class BehaviorTreeBaseNode : Node
 
         return null;
     }
-}
-
-/// <summary>
-/// 泛型行为树基础节点类
-/// </summary>
-public class BehaviorTreeBaseNode<IBTState> : BehaviorTreeBaseNode
-{
-
 }
 
 /// <summary>

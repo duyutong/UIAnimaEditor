@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
-public class TriggerNode : BehaviorTreeBaseNode<BehaviorTreeBaseState>
+public class TriggerNode: BehaviorTreeBaseNode
 {
     public override string Prefix => "Trigger";
     public TriggerNode() : base()

@@ -13,11 +13,11 @@ public class BTRuntimeController : MonoBehaviour
     {
         _ins = this;
     }
-    public static void AddRuntime(BTRuntime bTRuntime, Action<int> action)
+    public static void AddRuntime(BTRuntime bTRuntime, Action<int> callBack)
     {
         int index = bTRuntime.GetHashCode();
         bTRuntimes.Add(index, bTRuntime);
-        action(index);
+        callBack(index);
     }
     public static void RemoveRuntime(int index)
     {

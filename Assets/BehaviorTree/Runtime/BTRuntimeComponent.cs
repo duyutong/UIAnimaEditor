@@ -9,7 +9,7 @@ public class BTRuntimeComponent : MonoBehaviour
     public void OnEnable()
     {
         InitRuntime();
-        runtime.OnEnable();
+        runtime?.OnEnable();
     }
 
     public void InitRuntime()
@@ -22,14 +22,14 @@ public class BTRuntimeComponent : MonoBehaviour
 
     private void Update()
     {
-        if (runtime != null) { runtime.OnUpdate(); }
+        runtime?.OnUpdate();
     }
     public void OnDisable()
     {
-        if (runtime != null) runtime.OnDisable();
+        runtime?.OnDisable();
     }
     public void OnDestroy()
     {
-        if (runtime != null) runtime.OnDestroy();
+        runtime?.OnDestroy();
     }
 }

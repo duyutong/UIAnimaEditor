@@ -33,25 +33,25 @@ public class BTObjectPool
 
         return Activator.CreateInstance(type);
     }
-    public static T GetObject<T>(Type type) where T:class 
+    public static T GetObject<T>(Type type) where T: BehaviorTreeBaseState
     {
         string className = type.FullName;
         // 检查池中是否已有该类的对象
         if (pool.TryGetValue(className, out var objectQueue) && objectQueue.Count > 0)
         {
             T obj = objectQueue.Dequeue() as T;
-            (obj as BehaviorTreeBaseState)?.OnRefresh();
+            obj?.OnRefresh();
             return obj;
         }
 
         return Activator.CreateInstance(type) as T;
     }
-    public static T GetObject<T>() where T : class
+    public static T GetObject<T>() where T : BehaviorTreeBaseState
     {
         string className = typeof(T).FullName;
 
         T obj = GetObject(className) as T;
-        (obj as BehaviorTreeBaseState)?.OnRefresh();
+        obj?.OnRefresh();
 
         return obj;
     }
