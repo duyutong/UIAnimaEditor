@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.IO;
 using System.Reflection;
 using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -17,9 +14,9 @@ public class PersistentData
     public string methodName;           // 方法名
 
     public BTTargetObject btTargetObject;
-    public void SerializeBTTargetObject() 
+    public void SerializeBTTargetObject()
     {
-        if(btTargetObject == null) btTargetObject = new BTTargetObject();
+        if (btTargetObject == null) btTargetObject = new BTTargetObject();
         btTargetObject.target = target;
         btTargetObject.pathType = EFindObjPathType.ScenePath;
         btTargetObject.SerializeSelf();
@@ -39,12 +36,12 @@ public class BTTargetEvent
 
     [NonSerialized]
     public BTRuntime runtime;
-    public void SetTargetEvent() 
+    public void SetTargetEvent()
     {
         if (targetEvent != null && targetEvent.GetPersistentEventCount() > 0) return;
         if (persistentDatas == null) return;
 
-        for (int i = 0; i < persistentDatas.Length; i++) 
+        for (int i = 0; i < persistentDatas.Length; i++)
         {
             int index = i;
             PersistentData persistentData = persistentDatas[index];
@@ -62,7 +59,7 @@ public class BTTargetEvent
         {
             int persistentEventCount = targetEvent.GetPersistentEventCount();
             persistentDatas = new PersistentData[persistentEventCount];
-            for (int i = 0; i < persistentEventCount; i++) 
+            for (int i = 0; i < persistentEventCount; i++)
             {
                 int index = i;
                 PersistentData persistentData = ExtractEventInfo(index);
@@ -95,7 +92,7 @@ public class BTTargetEvent
         // 获取指定索引的 PersistentCall
         Type persistentCallType = Type.GetType("UnityEngine.Events.PersistentCall,UnityEngine.CoreModule");
         var persistentCall = Activator.CreateInstance(persistentCallType);
-       
+
         // 通过反射获取 PersistentCall 的相关字段
         FieldInfo targetAssemblyTypeNameField = persistentCallType.GetField("m_TargetAssemblyTypeName", BindingFlags.NonPublic | BindingFlags.Instance);
         FieldInfo target = persistentCallType.GetField("m_Target", BindingFlags.NonPublic | BindingFlags.Instance);
@@ -103,7 +100,7 @@ public class BTTargetEvent
         //赋值
         targetAssemblyTypeNameField.SetValue(persistentCall, persistentData.assemblyTypeName);
         UnityEngine.Object targetComponent = persistentData.target.GameObject().GetComponent(persistentData.assemblyTypeName);
-        
+
         if (targetComponent == null) return;
         target.SetValue(persistentCall, targetComponent);
         methodName.SetValue(persistentCall, persistentData.methodName);
@@ -117,7 +114,7 @@ public class BTTargetEvent
         // 获取 UnityEventBase 内部的 m_PersistentCalls
         var baseType = typeof(UnityEventBase); // UnityEventBase 是 UnityEvent 的基类
         var callsField = baseType.GetField("m_PersistentCalls", BindingFlags.NonPublic | BindingFlags.Instance);
-        if (callsField == null) 
+        if (callsField == null)
         {
             Debug.LogError("Could not find m_PersistentCalls field in UnityEventBase.");
             return null;

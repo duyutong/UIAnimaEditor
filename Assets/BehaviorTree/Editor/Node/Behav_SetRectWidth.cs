@@ -1,14 +1,14 @@
 ﻿
 using System;
-using UnityEngine;
 using UnityEditor.Experimental.GraphView;
+using UnityEngine;
 public class Behav_SetRectWidth : BehaviorNode
 {
     public override string stateName => "SetRectWidthState";
-    public Behav_SetRectWidth() : base() 
+    public Behav_SetRectWidth() : base()
     {
         title = "SetRectWidth";
-        
+
         Port port_enter = CreatePortForNode(this, Direction.Input, typeof(Boolean), Port.Capacity.Single);
         port_enter.portName = "enter";
         inputContainer.Add(port_enter);

@@ -1,6 +1,5 @@
 ﻿
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Json;
 using System.Text;
@@ -58,7 +57,7 @@ public class BTTagEventTriggerState : TiggerBaseState
     public override void OnEnter()
     {
         base.OnEnter();
-        
+
         exit = true;
         OnExit();
     }

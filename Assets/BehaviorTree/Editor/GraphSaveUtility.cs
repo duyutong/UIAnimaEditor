@@ -4,12 +4,12 @@ using System.IO;
 using System.Reflection;
 using System.Runtime.Serialization.Json;
 using System.Text;
+using Unity.Plastic.Newtonsoft.Json;
 using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
 using BTBaseNode = BehaviorTreeBaseNode;
-using Unity.Plastic.Newtonsoft.Json;
 using Edge = UnityEditor.Experimental.GraphView.Edge;
 
 public static class GraphSaveUtility
@@ -26,9 +26,9 @@ public static class GraphSaveUtility
     public static void SaveData(string fileName, UQueryState<Node> nodes, UQueryState<Edge> edges)
     {
         string filePath = $"Assets/BehaviorTree/BT/{fileName}.asset";
-        bool isExist = File.Exists(filePath) ;
+        bool isExist = File.Exists(filePath);
         BTContainer container;
-        if (isExist) container = AssetDatabase.LoadAssetAtPath<BTContainer>(filePath) ;
+        if (isExist) container = AssetDatabase.LoadAssetAtPath<BTContainer>(filePath);
         else container = ScriptableObject.CreateInstance<BTContainer>();
 
         container.edgeDatas.Clear();
@@ -73,7 +73,7 @@ public static class GraphSaveUtility
                 jsonSerializer.WriteObject(stream, baseNode.btState.stateObj);
                 json = Encoding.UTF8.GetString(stream.ToArray());
             }
-           
+
             data.lastNodes = new List<string>();
             foreach (BTBaseNode _node in baseNode.lastNodes) data.lastNodes.Add(_node.guid);
             data.nodeName = baseNode.title;
@@ -95,9 +95,9 @@ public static class GraphSaveUtility
         ResetBTTarget();
         Debug.Log($"{fileName}保存完成");
     }
-    private static void ResetBTTarget() 
+    private static void ResetBTTarget()
     {
-        foreach (BTTargetObject bTTargetObject in bTTargetObjects) 
+        foreach (BTTargetObject bTTargetObject in bTTargetObjects)
         {
             if (bTTargetObject == null) continue;
             bTTargetObject.SetObejctByPath();
@@ -111,47 +111,47 @@ public static class GraphSaveUtility
         }
         bTTargetEvents.Clear();
 
-        foreach (BTTargetContainer bTTargetContainer in bTTargetContainers) 
+        foreach (BTTargetContainer bTTargetContainer in bTTargetContainers)
         {
             if (bTTargetContainer == null) continue;
             bTTargetContainer.SetContainer();
         }
         bTTargetContainers.Clear();
     }
-    private static void CheckAndProcessObjectFields(BTStateObject bTState) 
+    private static void CheckAndProcessObjectFields(BTStateObject bTState)
     {
         Type type = bTState.GetType();
         if (type == null) return;
-        FieldInfo[] fields = type.GetFields(BindingFlags.Public| BindingFlags.Instance);
-        foreach (FieldInfo field in fields) 
+        FieldInfo[] fields = type.GetFields(BindingFlags.Public | BindingFlags.Instance);
+        foreach (FieldInfo field in fields)
         {
-            if (field.FieldType == typeof(BTTargetObject)) 
+            if (field.FieldType == typeof(BTTargetObject))
             {
                 BTTargetObject bTTargetObject = (BTTargetObject)field.GetValue(bTState);
                 if (bTTargetObject != null) bTTargetObject.SerializeSelf();
                 bTTargetObjects.Add(bTTargetObject);
             }
-            if (field.FieldType == typeof(BTTargetEvent)) 
+            if (field.FieldType == typeof(BTTargetEvent))
             {
                 BTTargetEvent bTTargetEvent = (BTTargetEvent)field.GetValue(bTState);
                 if (bTTargetEvent != null) bTTargetEvent.SerializeSelf();
                 bTTargetEvents.Add(bTTargetEvent);
             }
-            if(field.FieldType == typeof(BTTargetContainer))
+            if (field.FieldType == typeof(BTTargetContainer))
             {
                 BTTargetContainer bTTargetContainer = (BTTargetContainer)field.GetValue(bTState);
-                if(bTTargetContainer != null)bTTargetContainer.SerializeSelf();
+                if (bTTargetContainer != null) bTTargetContainer.SerializeSelf();
                 bTTargetContainers.Add(bTTargetContainer);
             }
         }
     }
-    
+
     #region 自定义节点生成
-    private static bool CheckIsTrigger(DefaultNode node) 
+    private static bool CheckIsTrigger(DefaultNode node)
     {
         return node.nodeType == "TriggerNode";
     }
-    private static string GetStateExtends(DefaultNode node) 
+    private static string GetStateExtends(DefaultNode node)
     {
         if (node.nodeType == "TriggerNode") return "TiggerBaseState";
         return "BehaviorTreeBaseState";
@@ -214,7 +214,7 @@ public static class GraphSaveUtility
         tempStr = tempStr.Replace("#PublicProperty#", str1);
         tempStr = tempStr.Replace("#SetPropValue#", str2);
         tempStr = tempStr.Replace("#SetObjPropValue#", str3);
-        tempStr = tempStr.Replace("#SetFieldValue#",str4);
+        tempStr = tempStr.Replace("#SetFieldValue#", str4);
 
         //写入文件
         string csSavePath = Application.dataPath.Replace("\\", "/") + "/BehaviorTree/State/" + className + ".cs";
@@ -319,7 +319,7 @@ public static class GraphSaveUtility
         }
 
         foreach (Node node in nodes)
-        {     
+        {
             BTBaseNode baseNode = node as BTBaseNode;
             if (baseNode == null) continue;
             baseNode.btState.Save();

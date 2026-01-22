@@ -1,14 +1,13 @@
 ﻿
 using System;
-using UnityEngine;
 using UnityEditor.Experimental.GraphView;
 public class Behav_DragInertia : BehaviorNode
 {
     public override string stateName => "DragInertiaState";
-    public Behav_DragInertia() : base() 
+    public Behav_DragInertia() : base()
     {
         title = "DragInertia";
-        
+
         Port port_enter = CreatePortForNode(this, Direction.Input, typeof(Boolean), Port.Capacity.Single);
         port_enter.portName = "enter";
         inputContainer.Add(port_enter);

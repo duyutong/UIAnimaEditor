@@ -1,12 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
-using UnityEngine;
+﻿using UnityEditor.Experimental.GraphView;
 
 public class Deco_Loop : DecoratorNode
 {
     public override string stateName => "LoopState";
-    public Deco_Loop() : base() 
+    public Deco_Loop() : base()
     {
         title = "Loop";
 

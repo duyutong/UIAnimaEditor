@@ -1,11 +1,11 @@
 ﻿
 using System;
-using UnityEngine;
 using UnityEditor.Experimental.GraphView;
+using UnityEngine;
 public class Behav_ColorAnima : BehaviorNode
 {
     public override string stateName => "ColorAnimaState";
-    public Behav_ColorAnima() : base() 
+    public Behav_ColorAnima() : base()
     {
         title = "ColorAnima";
 

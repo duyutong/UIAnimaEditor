@@ -1,9 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
-using UnityEngine;
-
-public class TriggerNode: BehaviorTreeBaseNode
+﻿public class TriggerNode : BehaviorTreeBaseNode
 {
     public override string Prefix => "Trigger";
     public TriggerNode() : base()

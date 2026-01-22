@@ -23,8 +23,8 @@ public class BehaviorTreeBaseState
     /// 初始化参数
     /// </summary>
     /// <param name="param">参数</param>
-    public virtual void InitParam(string param) {}
-    public void InitBTTarget() 
+    public virtual void InitParam(string param) { }
+    public void InitBTTarget()
     {
         Type type = stateObj.GetType();
         if (type == null) return;
@@ -34,24 +34,24 @@ public class BehaviorTreeBaseState
             if (field.FieldType == typeof(BTTargetObject))
             {
                 BTTargetObject bTTargetObject = (BTTargetObject)field.GetValue(stateObj);
-                if (bTTargetObject != null) 
+                if (bTTargetObject != null)
                 {
                     bTTargetObject.runtime = runtime;
                     bTTargetObject.SetObejctByPath();
                 }
             }
-            if (field.FieldType == typeof(BTTargetEvent)) 
+            if (field.FieldType == typeof(BTTargetEvent))
             {
                 BTTargetEvent bTTargetEvent = (BTTargetEvent)field.GetValue(stateObj);
-                if (bTTargetEvent != null) 
+                if (bTTargetEvent != null)
                 {
                     bTTargetEvent.runtime = runtime;
                     bTTargetEvent.SetTargetEvent();
                 }
             }
-            if (field.FieldType == typeof(BTTargetContainer)) 
+            if (field.FieldType == typeof(BTTargetContainer))
             {
-                BTTargetContainer bTTargetContainer= (BTTargetContainer)field.GetValue(stateObj);
+                BTTargetContainer bTTargetContainer = (BTTargetContainer)field.GetValue(stateObj);
                 if (bTTargetContainer != null)
                 {
                     bTTargetContainer.runtime = runtime;
@@ -84,14 +84,14 @@ public class BehaviorTreeBaseState
     public void InitValue()
     {
         if (SetFieldValue() == ESetFieldValueResult.None)
-        { 
-            InitValueReflact(); 
+        {
+            InitValueReflact();
             return;
         }
 
-        foreach (BehaviorTreeBaseState lastState in lastStates) 
+        foreach (BehaviorTreeBaseState lastState in lastStates)
         {
-            foreach (BTOutputInfo inputInfo in lastState.output) 
+            foreach (BTOutputInfo inputInfo in lastState.output)
             {
                 if (inputInfo.value == null) continue;
                 bool isCommValue = string.IsNullOrEmpty(inputInfo.nodeId);
@@ -104,7 +104,7 @@ public class BehaviorTreeBaseState
                 if (result == ESetFieldValueResult.Fail) continue;
             }
         }
-         
+
     }
     /// <summary>
     /// 默认的字段赋值逻辑。可由子类重写以实现具体的赋值操作。
@@ -125,7 +125,7 @@ public class BehaviorTreeBaseState
     /// 保存状态
     /// </summary>
     public virtual void Save() { }
-    public virtual void OnInitLastStates() 
+    public virtual void OnInitLastStates()
     {
         if (lastStates == null)
         {
@@ -134,7 +134,7 @@ public class BehaviorTreeBaseState
             foreach (string id in lastStateIds) lastStates.Add(runtime.stateDic[id]);
         }
     }
-    public virtual void OnInitFinish(){ }
+    public virtual void OnInitFinish() { }
 
     /// <summary>
     /// 每帧无条件调用的函数，表示这个节点正在被检测
@@ -143,7 +143,7 @@ public class BehaviorTreeBaseState
     /// <summary>
     /// 进入状态回调
     /// </summary>
-    public virtual void OnEnter() 
+    public virtual void OnEnter()
     {
         InitValue();
         state = EBTState.进入;
@@ -158,7 +158,7 @@ public class BehaviorTreeBaseState
     /// <summary>
     /// 退出状态回调
     /// </summary>
-    public virtual void OnExit() 
+    public virtual void OnExit()
     {
         if (output.Count == 1 && output[0].fromPortName == "exit") output[0].value = true;
 
@@ -195,7 +195,7 @@ public class BehaviorTreeBaseState
             output[i] = info;
         }
     }
-    public List<BehaviorTreeBaseState> GetNextStates() 
+    public List<BehaviorTreeBaseState> GetNextStates()
     {
         List<BehaviorTreeBaseState> nextStates = new List<BehaviorTreeBaseState>();
         List<string> stateIds = new List<string>();
@@ -280,7 +280,7 @@ public class BehaviorTreeBaseState
     }
 }
 
-public enum ESetFieldValueResult 
+public enum ESetFieldValueResult
 {
     Succ,
     Fail,

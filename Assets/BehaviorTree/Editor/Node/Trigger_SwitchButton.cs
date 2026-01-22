@@ -1,14 +1,13 @@
 ﻿
 using System;
-using UnityEngine;
 using UnityEditor.Experimental.GraphView;
 public class Trigger_SwitchButton : TriggerNode
 {
     public override string stateName => "SwitchButtonState";
-    public Trigger_SwitchButton() : base() 
+    public Trigger_SwitchButton() : base()
     {
         title = "SwitchButton";
-        
+
         Port port_enter = CreatePortForNode(this, Direction.Input, typeof(Boolean), Port.Capacity.Single);
         port_enter.portName = "enter";
         inputContainer.Add(port_enter);

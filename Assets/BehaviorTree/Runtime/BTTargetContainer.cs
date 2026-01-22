@@ -1,9 +1,6 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 
 [Serializable]
@@ -16,7 +13,7 @@ public class BTTargetContainer
     public BTRuntime runtime;
 
     private Action<bool> loadFinish;
-    public void SetContainer(Action<bool> _loadFinish = null) 
+    public void SetContainer(Action<bool> _loadFinish = null)
     {
         if (target != null) { _loadFinish?.Invoke(true); return; }
 
@@ -36,7 +33,7 @@ public class BTTargetContainer
         loadFinish?.Invoke(handle.Status == AsyncOperationStatus.Succeeded);
         loadFinish = null;
     }
-    public void SerializeSelf() 
+    public void SerializeSelf()
     {
 #if UNITY_EDITOR
         assetPath = null;

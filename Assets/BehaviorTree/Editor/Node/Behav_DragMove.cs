@@ -1,14 +1,13 @@
 ﻿
 using System;
-using UnityEngine;
 using UnityEditor.Experimental.GraphView;
 public class Behav_DragMove : BehaviorNode
 {
     public override string stateName => "DragMoveState";
-    public Behav_DragMove() : base() 
+    public Behav_DragMove() : base()
     {
         title = "DragMove";
-        
+
         Port port_enter = CreatePortForNode(this, Direction.Input, typeof(Boolean), Port.Capacity.Single);
         port_enter.portName = "enter";
         inputContainer.Add(port_enter);

@@ -47,7 +47,7 @@ public class BTRuntime
         }
         //进行拓扑排序
         List<TopologyData> topologyDatas = new List<TopologyData>();
-        foreach (KeyValuePair<string, BTState> keyValuePair in stateDic) 
+        foreach (KeyValuePair<string, BTState> keyValuePair in stateDic)
         {
             BTState state = keyValuePair.Value;
             TopologyData topologyData = new TopologyData();
@@ -117,9 +117,9 @@ public class BTRuntime
 
         return sortedList;
     }
-    public void UnLoadStates() 
+    public void UnLoadStates()
     {
-        foreach (KeyValuePair<string, BTState> keyValuePair in stateDic) 
+        foreach (KeyValuePair<string, BTState> keyValuePair in stateDic)
         {
             BTState state = keyValuePair.Value;
             BTObjectPool.ReturnObject(state);
@@ -142,14 +142,14 @@ public class BTRuntime
             action(state);
         }
     }
-    public void TriggerBtStateAndRun(string triggerTag) 
+    public void TriggerBtStateAndRun(string triggerTag)
     {
         OnReceiveMsg(triggerTag, EBTState.进入);
     }
-    public void ResetAllStateAndRun() 
+    public void ResetAllStateAndRun()
     {
         isInitFinish = false;
-        foreach (KeyValuePair<string, BTState> keyValuePair in stateDic) 
+        foreach (KeyValuePair<string, BTState> keyValuePair in stateDic)
         {
             BTState state = keyValuePair.Value;
             state.OnRefresh();
@@ -158,7 +158,7 @@ public class BTRuntime
     }
     public void OnReceiveMsg(string triggerTag, EBTState eBTState)
     {
-       // Debug.Log($"stateTag {triggerTag} eBTState {eBTState}");
+        // Debug.Log($"stateTag {triggerTag} eBTState {eBTState}");
 
         foreach (KeyValuePair<string, BTState> keyValuePair in stateDic)
         {
@@ -170,7 +170,7 @@ public class BTRuntime
                 if (checkState.interruptTag != triggerTag) continue;
                 checkState.OnInterrupt();
             }
-            else if (eBTState == EBTState.进入) 
+            else if (eBTState == EBTState.进入)
             {
                 TiggerBaseState check = checkState as TiggerBaseState;
                 bool isTrigger = check != null && !string.IsNullOrEmpty(check.triggerTag);
@@ -181,11 +181,11 @@ public class BTRuntime
             }
         }
     }
-    private bool CheckIsLogicGate(BTState checkState) 
+    private bool CheckIsLogicGate(BTState checkState)
     {
         return (checkState as LogicGateState) != null;
     }
-    private bool CheckIsTrigger(BTState checkState) 
+    private bool CheckIsTrigger(BTState checkState)
     {
         TiggerBaseState check = checkState as TiggerBaseState;
         return check != null && !string.IsNullOrEmpty(check.triggerTag);
@@ -211,7 +211,7 @@ public class BTRuntime
             else if (checkState.state == EBTState.未开始)
             {
                 int checkCount = lastStateDic[nodeId].Count;
-                
+
                 bool isExistFinish = false;//是否存在已经完成的前置状态
                 foreach (string lastStateId in lastStateDic[nodeId])
                 {
@@ -233,15 +233,15 @@ public class BTRuntime
     }
     public void OnDisable()
     {
-        if (isInitFinish) 
+        if (isInitFinish)
         {
             UnLoadStates();
             BTRuntimeController.RemoveRuntime(runtimeIndex);
         }
     }
-    public void OnEnable() 
+    public void OnEnable()
     {
-        if (!isInitFinish) 
+        if (!isInitFinish)
         {
             LoadStates();
             BTRuntimeController.AddRuntime(this, (_index) => { runtimeIndex = _index; });
@@ -249,12 +249,12 @@ public class BTRuntime
     }
     public void OnDestroy()
     {
-        if (isInitFinish) 
+        if (isInitFinish)
         {
             UnLoadStates();
             BTRuntimeController.RemoveRuntime(runtimeIndex);
         }
-       
+
     }
 }
 public class TopologyData

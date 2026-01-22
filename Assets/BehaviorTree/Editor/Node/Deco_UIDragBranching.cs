@@ -1,14 +1,11 @@
-﻿
-using System;
-using UnityEngine;
-using UnityEditor.Experimental.GraphView;
+﻿using UnityEditor.Experimental.GraphView;
 public class Deco_UIDragBranching : DecoratorNode
 {
     public override string stateName => "UIDragBranchingState";
-    public Deco_UIDragBranching() : base() 
+    public Deco_UIDragBranching() : base()
     {
         title = "UIDragBranching";
-        
+
         Port port_enter = CreatePortForNode(this, Direction.Input, typeof(System.Boolean), Port.Capacity.Single);
         port_enter.portName = "enter";
         inputContainer.Add(port_enter);
@@ -21,7 +18,7 @@ public class Deco_UIDragBranching : DecoratorNode
         port_uiCameraObj.portName = "uiCameraObj";
         inputContainer.Add(port_uiCameraObj);
 
-        
+
         Port port_beginDrag = CreatePortForNode(this, Direction.Output, typeof(System.Boolean), Port.Capacity.Multi);
         port_beginDrag.portName = "beginDrag";
         outputContainer.Add(port_beginDrag);

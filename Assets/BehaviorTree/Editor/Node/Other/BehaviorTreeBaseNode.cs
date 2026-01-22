@@ -13,7 +13,7 @@ using Port = UnityEditor.Experimental.GraphView.Port;
 /// 行为树基础节点类
 /// </summary>
 [Serializable]
-public abstract class BehaviorTreeBaseNode : Node   
+public abstract class BehaviorTreeBaseNode : Node
 {
     /// <summary>
     /// 获取节点前缀
@@ -98,7 +98,7 @@ public abstract class BehaviorTreeBaseNode : Node
         Port port = node.InstantiatePort(Orientation.Horizontal, setting.direction, setting.capacity, portType);
         port.style.display = setting.isShowAsPort ? DisplayStyle.Flex : DisplayStyle.None;
         port.portName = setting.portName;
-       
+
         if (setting.direction == Direction.Output) node.outputContainer.Add(port);
         if (setting.direction == Direction.Input) node.inputContainer.Add(port);
 
@@ -197,8 +197,8 @@ public class BTNodePortSetting
             case EPortType.AnimationCurve: return typeof(AnimationCurve);
             case EPortType.Color: return typeof(Color);
             case EPortType.Object: return typeof(BTTargetObject);
-            case EPortType.Event:return typeof(BTTargetEvent);
-            case EPortType.BTContainer:return typeof(BTTargetContainer);
+            case EPortType.Event: return typeof(BTTargetEvent);
+            case EPortType.BTContainer: return typeof(BTTargetContainer);
         }
         return typeof(string);
     }

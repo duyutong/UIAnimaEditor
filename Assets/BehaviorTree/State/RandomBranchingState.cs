@@ -117,7 +117,7 @@ public class RandomBranchingState : BehaviorTreeBaseState
     }
     public override void OnExit()
     {
-        for (int i = 0; i < output.Count; i++) 
+        for (int i = 0; i < output.Count; i++)
         {
             BTOutputInfo info = output[i];
             if (info.fromPortName == "exit") info.value = true;

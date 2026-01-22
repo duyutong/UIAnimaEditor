@@ -1,16 +1,12 @@
-﻿
-using System;
-using UnityEngine;
-using UnityEditor.Experimental.GraphView;
-using System.Threading.Tasks;
+﻿using UnityEditor.Experimental.GraphView;
 using UnityEngine.UIElements;
 public class Deco_SubBTContainer : DecoratorNode
 {
     public override string stateName => "SubBTContainerState";
-    public Deco_SubBTContainer() : base() 
+    public Deco_SubBTContainer() : base()
     {
         title = "SubBTContainer";
-        
+
         Port port_enter = CreatePortForNode(this, Direction.Input, typeof(System.Boolean), Port.Capacity.Multi);
         port_enter.portName = "enter";
         inputContainer.Add(port_enter);
@@ -19,7 +15,7 @@ public class Deco_SubBTContainer : DecoratorNode
         port_container.portName = "container";
         inputContainer.Add(port_container);
 
-        
+
         Port port_exit = CreatePortForNode(this, Direction.Output, typeof(System.Boolean), Port.Capacity.Multi);
         port_exit.portName = "exit";
         outputContainer.Add(port_exit);
@@ -29,7 +25,7 @@ public class Deco_SubBTContainer : DecoratorNode
 
     private void OnMouseDownEvent(MouseDownEvent evt)
     {
-        if(evt.button == (int)MouseButton.LeftMouse && evt.clickCount == 2)
+        if (evt.button == (int)MouseButton.LeftMouse && evt.clickCount == 2)
         {
             SubBTContainerState state = btState as SubBTContainerState;
             if (state == null) return;
@@ -37,7 +33,7 @@ public class Deco_SubBTContainer : DecoratorNode
             if (state.container.target == null) return;
 
             BehaviourTreeEditor editor = BehaviourTreeEditor.OpenWindow();
-           
+
             if (btState.runtime == null) editor.OpenBTAsset(state.container.target);
             else editor.LoadRuntimeContainer(btState.runtime);
 

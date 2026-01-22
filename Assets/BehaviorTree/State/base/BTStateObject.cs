@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class BTStateObject : ScriptableObject
@@ -31,7 +29,7 @@ public class BTStateObject : ScriptableObject
             output.Add(newInfo);
     }
 }
-public class BTTiggerStateObject : BTStateObject 
+public class BTTiggerStateObject : BTStateObject
 {
     public string triggerTag = "";
 }

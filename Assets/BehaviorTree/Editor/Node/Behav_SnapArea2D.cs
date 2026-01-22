@@ -1,14 +1,11 @@
-﻿
-using System;
-using UnityEngine;
-using UnityEditor.Experimental.GraphView;
+﻿using UnityEditor.Experimental.GraphView;
 public class Behav_SnapArea2D : BehaviorNode
 {
     public override string stateName => "SnapArea2DState";
-    public Behav_SnapArea2D() : base() 
+    public Behav_SnapArea2D() : base()
     {
         title = "SnapArea2D";
-        
+
         Port port_enter = CreatePortForNode(this, Direction.Input, typeof(System.Boolean), Port.Capacity.Single);
         port_enter.portName = "enter";
         inputContainer.Add(port_enter);

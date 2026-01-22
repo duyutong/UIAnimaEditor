@@ -1,11 +1,11 @@
 ﻿
 using System;
-using UnityEngine;
 using UnityEditor.Experimental.GraphView;
+using UnityEngine;
 public class Behav_ScaleAnima : BehaviorNode
 {
     public override string stateName => "ScaleAnimaState";
-    public Behav_ScaleAnima() : base() 
+    public Behav_ScaleAnima() : base()
     {
         title = "ScaleAnima";
 

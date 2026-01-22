@@ -1,6 +1,5 @@
 ﻿
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Json;
 using System.Text;
@@ -74,7 +73,7 @@ public class SwitchButtonState : BehaviorTreeBaseState
     public override void OnEnter()
     {
         base.OnEnter();
-        if (button == null) 
+        if (button == null)
         {
             button = buttonObj.target.GetComponent<Button>();
             button.onClick.AddListener(() => OnExecute());
@@ -97,7 +96,7 @@ public class SwitchButtonState : BehaviorTreeBaseState
     }
     public override void OnExit()
     {
-        for (int i = 0; i < output.Count; i++) 
+        for (int i = 0; i < output.Count; i++)
         {
             BTOutputInfo info = output[i];
 

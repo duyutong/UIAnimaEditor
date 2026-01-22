@@ -1,10 +1,10 @@
-﻿using UnityEditor;
-using UnityEngine;
-using UnityEngine.UIElements;
-using System;
-using UnityEditor.Experimental.GraphView;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using UnityEditor;
+using UnityEditor.Experimental.GraphView;
+using UnityEngine;
+using UnityEngine.UIElements;
 
 public class CustomNodeEditor : EditorWindow
 {
@@ -39,7 +39,7 @@ public class CustomNodeEditor : EditorWindow
         VisualElement root = rootVisualElement;
         visualTreeAsset = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/BehaviorTree/Editor/UIBuilder/CustomNodeEditor.uxml");
         visualTreeAsset.CloneTree(root);
-        
+
         InitNodeTypeList();
 
         nodeView = root.Q<CustomNodeView>();
@@ -59,9 +59,9 @@ public class CustomNodeEditor : EditorWindow
         nodeTypeField = root.Q<DropdownField>("nodeTypeField");
         nodeTypeField.choices = nodeTypeList;
         nodeTypeField.value = nodeTypeList[0];
-        nodeTypeField.RegisterValueChangedCallback((_value) => 
+        nodeTypeField.RegisterValueChangedCallback((_value) =>
         {
-            if (currNode != null) 
+            if (currNode != null)
             {
                 currNode.nodeType = _value.newValue;
                 currNode.RefreshExpandedState();
@@ -81,13 +81,13 @@ public class CustomNodeEditor : EditorWindow
         settingView = root.Q<VisualElement>("settingView");
         settingView.style.display = DisplayStyle.None;
     }
-    private void InitNodeTypeList() 
+    private void InitNodeTypeList()
     {
         nodeTypeList.Clear();
         string path = Application.dataPath.Replace("\\", "/") + "/BehaviorTree/Editor/Node/Base";
         DirectoryInfo directory = Directory.CreateDirectory(path);
         FileInfo[] fileInfos = directory.GetFiles();
-        foreach (FileInfo info in fileInfos) 
+        foreach (FileInfo info in fileInfos)
         {
             if (info.Extension.ToLower() != ".cs") continue;
             nodeTypeList.Add(info.Name.Split(".")[0]);
@@ -103,7 +103,7 @@ public class CustomNodeEditor : EditorWindow
         ProtSettingView settingView = new ProtSettingView();
         BTNodePortSetting portSetting = new BTNodePortSetting();
         portSetting.node = currNode;
-        settingView.ShowProtSetting(portSetting,true);
+        settingView.ShowProtSetting(portSetting, true);
         settingView.onDelPort = OnDeletePort;
         scrollView.Add(settingView);
     }
@@ -115,7 +115,7 @@ public class CustomNodeEditor : EditorWindow
         if (string.IsNullOrEmpty(nodeName)) return;
         nodeView.CreatNode(nodeName, nodeType);
     }
-    private void OnSelectAction(BehaviorTreeBaseNode _node) 
+    private void OnSelectAction(BehaviorTreeBaseNode _node)
     {
         DefaultNode node = _node as DefaultNode;
         currNode = node;
@@ -126,7 +126,7 @@ public class CustomNodeEditor : EditorWindow
         List<Port> ports = node.inputContainer.Query<Port>().ToList();
         ports.AddRange(node.outputContainer.Query<Port>().ToList());
 
-        foreach (Port port in ports) 
+        foreach (Port port in ports)
         {
             ProtSettingView settingView = new ProtSettingView();
             BTNodePortSetting portSetting = new BTNodePortSetting();
@@ -143,7 +143,7 @@ public class CustomNodeEditor : EditorWindow
 
         settingView.style.display = DisplayStyle.Flex;
     }
-    private void OnDeletePort(ProtSettingView view) 
+    private void OnDeletePort(ProtSettingView view)
     {
         scrollView.contentContainer.Remove(view);
     }

@@ -1,8 +1,6 @@
-﻿using D.Unity3dTools;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 [Serializable]
 public class BTContainer : ScriptableObject

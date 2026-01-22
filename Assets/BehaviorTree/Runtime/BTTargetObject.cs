@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -20,10 +18,10 @@ public class BTTargetObject
     {
         if (target != null) return;
 
-        if (pathType == EFindObjPathType.ScenePath) 
+        if (pathType == EFindObjPathType.ScenePath)
         {
             //if (runtime == null) return;
-            if(string.IsNullOrEmpty(scenePath)) return;
+            if (string.IsNullOrEmpty(scenePath)) return;
             target = GameObject.Find(scenePath);
         }
         if (pathType == EFindObjPathType.LocalPath)
@@ -42,9 +40,9 @@ public class BTTargetObject
         scenePath = string.Empty;
 
         if (pathType == EFindObjPathType.ScenePath) scenePath = GetObjPath(target);
-        if (pathType == EFindObjPathType.LocalPath) 
+        if (pathType == EFindObjPathType.LocalPath)
         {
-            if(target!=null) localPath = GetObjPath(target); 
+            if (target != null) localPath = GetObjPath(target);
         }
 
         target = null;
@@ -83,9 +81,9 @@ public class BTTargetObject
         string path = string.Empty;
         Transform current = obj.transform;
 
-        if (current.GetComponent<BTRuntimeComponent>() != null) return selfPath; 
-        
-        while (current!=null && current.GetComponent<BTRuntimeComponent>() == null)
+        if (current.GetComponent<BTRuntimeComponent>() != null) return selfPath;
+
+        while (current != null && current.GetComponent<BTRuntimeComponent>() == null)
         {
             path = path + "/" + current.name;
 

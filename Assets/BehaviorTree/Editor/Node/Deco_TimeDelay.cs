@@ -1,11 +1,10 @@
 ﻿
 using System;
-using UnityEngine;
 using UnityEditor.Experimental.GraphView;
 public class Deco_TimeDelay : DecoratorNode
 {
     public override string stateName => "TimeDelayState";
-    public Deco_TimeDelay() : base() 
+    public Deco_TimeDelay() : base()
     {
         title = "TimeDelay";
 

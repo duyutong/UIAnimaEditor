@@ -1,14 +1,13 @@
 ﻿
 using System;
-using UnityEngine;
 using UnityEditor.Experimental.GraphView;
 public class Deco_EventTagSender : DecoratorNode
 {
     public override string stateName => "EventTagSenderState";
-    public Deco_EventTagSender() : base() 
+    public Deco_EventTagSender() : base()
     {
         title = "EventTagSender";
-        
+
         Port port_enter = CreatePortForNode(this, Direction.Input, typeof(Boolean), Port.Capacity.Single);
         port_enter.portName = "enter";
         inputContainer.Add(port_enter);

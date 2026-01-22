@@ -1,7 +1,6 @@
 ﻿
 using D.Unity3dTools;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Json;
 using System.Text;
@@ -26,7 +25,7 @@ public class UIHoverBranchingState : UIEventBranchingState
     {
         get
         {
-            if (_stateObj == null) 
+            if (_stateObj == null)
             {
                 _stateObj = ScriptableObject.CreateInstance<UIHoverBranchingStateObj>();
 
@@ -42,7 +41,7 @@ public class UIHoverBranchingState : UIEventBranchingState
                 _stateObj.enter = enter;
                 _stateObj.targetObj = targetObj;
                 _stateObj.uiCameraObj = uiCameraObj;
-            } 
+            }
 
             return _stateObj;
         }

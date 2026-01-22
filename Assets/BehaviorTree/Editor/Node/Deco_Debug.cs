@@ -1,7 +1,4 @@
-﻿
-using System;
-using UnityEngine;
-using UnityEditor.Experimental.GraphView;
+﻿using UnityEditor.Experimental.GraphView;
 public class Deco_Debug : DecoratorNode
 {
     public override string stateName => "DebugState";

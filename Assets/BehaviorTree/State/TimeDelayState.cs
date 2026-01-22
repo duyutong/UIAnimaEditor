@@ -1,6 +1,5 @@
 ﻿
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Json;
 using System.Text;
@@ -58,7 +57,7 @@ public class TimeDelayState : BehaviorTreeBaseState
     {
         base.OnUpdate();
         currTime += Time.deltaTime;
-        if (currTime >= delayTime) 
+        if (currTime >= delayTime)
         {
             OnExit();
         }

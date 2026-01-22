@@ -1,11 +1,10 @@
 ﻿
 using System;
-using UnityEngine;
 using UnityEditor.Experimental.GraphView;
 public class Trigger_BTTagEventTrigger : TriggerNode
 {
     public override string stateName => "BTTagEventTriggerState";
-    public Trigger_BTTagEventTrigger() : base() 
+    public Trigger_BTTagEventTrigger() : base()
     {
         title = "BTTagEventTrigger";
 

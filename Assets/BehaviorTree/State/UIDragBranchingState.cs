@@ -1,7 +1,6 @@
 ﻿
 using D.Unity3dTools;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Json;
 using System.Text;
@@ -26,7 +25,7 @@ public class UIDragBranchingState : UIEventBranchingState
     {
         get
         {
-            if (_stateObj == null) 
+            if (_stateObj == null)
             {
                 _stateObj = ScriptableObject.CreateInstance<UIDragBranchingStateObj>();
 
@@ -42,7 +41,7 @@ public class UIDragBranchingState : UIEventBranchingState
                 _stateObj.targetObj = targetObj;
                 _stateObj.uiCameraObj = uiCameraObj;
                 _stateObj.idel = idel;
-            } 
+            }
 
             return _stateObj;
         }
@@ -110,7 +109,7 @@ public class UIDragBranchingState : UIEventBranchingState
         base.OnRefresh();
 
         if (drag) return;
-        
+
         beginDrag = _stateObj.beginDrag;
         drag = _stateObj.drag;
         endDrag = _stateObj.endDrag;
@@ -124,7 +123,7 @@ public class UIDragBranchingState : UIEventBranchingState
 
         OnExit();
     }
-    public override void OnExit() 
+    public override void OnExit()
     {
         for (int i = 0; i < output.Count; i++)
         {
@@ -133,7 +132,7 @@ public class UIDragBranchingState : UIEventBranchingState
             if (info.fromPortName == "drag") info.value = drag;
             if (info.fromPortName == "endDrag") info.value = endDrag;
             if (info.fromPortName == "idel") info.value = idel;
-            output[i] = info; 
+            output[i] = info;
         }
 
         base.OnExit();

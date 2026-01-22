@@ -1,7 +1,6 @@
 ﻿
 using D.Unity3dTools;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Json;
 using System.Text;
@@ -76,11 +75,11 @@ public class UIDownOrUpBranchingState : UIEventBranchingState
     private RectTransform rectTransform;
     private bool isInitFinish;
 
-    public override void OnEnter() 
+    public override void OnEnter()
     {
         base.OnEnter();
         if (rectTransform == null && targetObj != null) rectTransform = targetObj.target.GetComponent<RectTransform>();
-        if (runtime != null && !isInitFinish) 
+        if (runtime != null && !isInitFinish)
         {
             isInitFinish = true;
             OnSetPointTriggerEvent(targetObj);
@@ -88,7 +87,7 @@ public class UIDownOrUpBranchingState : UIEventBranchingState
             trigger.AddTriggerEventListener(EventTriggerType.PointerUp, OnMyPointerUp);
         }
     }
-    public override void OnRefresh() 
+    public override void OnRefresh()
     {
         base.OnRefresh();
 
@@ -110,7 +109,7 @@ public class UIDownOrUpBranchingState : UIEventBranchingState
     }
     private void OnMyPointerUp(PointerEventData data)
     {
-        pointerUp = true; 
+        pointerUp = true;
         pointerDown = false;
         idel = false;
 

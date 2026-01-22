@@ -1,12 +1,11 @@
-﻿using System.Diagnostics;
-using UnityEditor;
+﻿using UnityEditor;
 using UnityEngine.UIElements;
 
 public class InspectorView : VisualElement
 {
     public Editor editor;
     public new class UxmlFactory : UxmlFactory<InspectorView, UxmlTraits> { }
-    internal void UpdateSelection(BehaviorTreeBaseNode node) 
+    internal void UpdateSelection(BehaviorTreeBaseNode node)
     {
         Clear();
         UnityEngine.Object.DestroyImmediate(editor);

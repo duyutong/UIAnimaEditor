@@ -1,11 +1,10 @@
 ﻿
 using System;
-using UnityEngine;
 using UnityEditor.Experimental.GraphView;
 public class Deco_LogicGate : DecoratorNode
 {
     public override string stateName => "LogicGateState";
-    public Deco_LogicGate() : base() 
+    public Deco_LogicGate() : base()
     {
         title = "LogicGate";
 

@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-// <summary>
+﻿// <summary>
 /// 自动生成cs文件时使用的预制文字
 /// </summary>
 public class CSTemplate

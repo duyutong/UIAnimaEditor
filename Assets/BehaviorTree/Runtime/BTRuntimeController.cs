@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class BTRuntimeController : MonoBehaviour
@@ -26,7 +24,7 @@ public class BTRuntimeController : MonoBehaviour
     }
     public void SendToTag(string _tag, EBTState eBTState)
     {
-        foreach (KeyValuePair<int, BTRuntime>  keyValuePair in bTRuntimes)
+        foreach (KeyValuePair<int, BTRuntime> keyValuePair in bTRuntimes)
         {
             BTRuntime bTRuntime = keyValuePair.Value;
             if (bTRuntime == null) continue;

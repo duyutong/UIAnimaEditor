@@ -1,14 +1,11 @@
-﻿
-using System;
-using UnityEngine;
-using UnityEditor.Experimental.GraphView;
+﻿using UnityEditor.Experimental.GraphView;
 public class Deco_UIHoverBranching : DecoratorNode
 {
     public override string stateName => "UIHoverBranchingState";
-    public Deco_UIHoverBranching() : base() 
+    public Deco_UIHoverBranching() : base()
     {
         title = "UIHoverBranching";
-        
+
         Port port_enter = CreatePortForNode(this, Direction.Input, typeof(System.Boolean), Port.Capacity.Single);
         port_enter.portName = "enter";
         inputContainer.Add(port_enter);
@@ -21,7 +18,7 @@ public class Deco_UIHoverBranching : DecoratorNode
         port_uiCameraObj.portName = "uiCameraObj";
         inputContainer.Add(port_uiCameraObj);
 
-        
+
         Port port_pointerEnter = CreatePortForNode(this, Direction.Output, typeof(System.Boolean), Port.Capacity.Multi);
         port_pointerEnter.portName = "pointerEnter";
         outputContainer.Add(port_pointerEnter);

@@ -1,6 +1,5 @@
 ﻿
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Json;
 using System.Text;
@@ -57,7 +56,7 @@ public class LogicGateState : BehaviorTreeBaseState
     public override void OnEnter()
     {
         base.OnEnter();
-        if (logicType == ELogic.OR) 
+        if (logicType == ELogic.OR)
         {
             OnExit();
         }
@@ -91,7 +90,7 @@ public class LogicGateStateObj : BTStateObject
     public EBTState state;
     public ELogic logicType;
 }
-public enum ELogic 
+public enum ELogic
 {
     AND,
     OR,

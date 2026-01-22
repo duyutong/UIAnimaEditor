@@ -33,7 +33,7 @@ public class BTObjectPool
 
         return Activator.CreateInstance(type);
     }
-    public static T GetObject<T>(Type type) where T: BehaviorTreeBaseState
+    public static T GetObject<T>(Type type) where T : BehaviorTreeBaseState
     {
         string className = type.FullName;
         // 检查池中是否已有该类的对象

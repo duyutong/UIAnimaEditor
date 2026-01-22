@@ -1,6 +1,5 @@
 ﻿
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Json;
 using System.Text;
@@ -19,7 +18,7 @@ public class SetRectWidthState : BehaviorTreeBaseState
     {
         get
         {
-            if (_stateObj == null) 
+            if (_stateObj == null)
             {
                 _stateObj = ScriptableObject.CreateInstance<SetRectWidthStateObj>();
 
@@ -32,7 +31,7 @@ public class SetRectWidthState : BehaviorTreeBaseState
                 _stateObj.enter = enter;
                 _stateObj.animaCurve = animaCurve;
                 _stateObj.target = target;
-            } 
+            }
 
             return _stateObj;
         }

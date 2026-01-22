@@ -62,7 +62,7 @@ public class UIEventBranchingState : BehaviorTreeBaseState
         if (bTTargetObject == null) return;
         if (bTTargetObject.target == null) return;
 
-        GameObject go = bTTargetObject.target as GameObject; 
+        GameObject go = bTTargetObject.target as GameObject;
         if (go == null) return;
 
         trigger = go.transform.GetOrAddComponent<EventTrigger>();
@@ -87,7 +87,7 @@ public class UIEventBranchingState : BehaviorTreeBaseState
             if (checkDown) trigger.AddTriggerEventListener(EventTriggerType.PointerDown, SetEventDataInOutput);
             if (checkUp) trigger.AddTriggerEventListener(EventTriggerType.PointerUp, SetEventDataInOutput);
             if (checkClick) trigger.AddTriggerEventListener(EventTriggerType.PointerClick, SetEventDataInOutput);
-            
+
             if (checkBeginDrag) trigger.AddTriggerEventListener(EventTriggerType.BeginDrag, SetEventDataInOutput);
             if (checkDrag) trigger.AddTriggerEventListener(EventTriggerType.Drag, SetEventDataInOutput);
             if (checkEndDrag) trigger.AddTriggerEventListener(EventTriggerType.EndDrag, SetEventDataInOutput);
@@ -96,7 +96,7 @@ public class UIEventBranchingState : BehaviorTreeBaseState
             if (checkPointerExit) trigger.AddTriggerEventListener(EventTriggerType.PointerExit, SetEventDataInOutput);
         }
     }
-    public bool IsMouseOverUIElement(RectTransform rect,Camera uiCamera) 
+    public bool IsMouseOverUIElement(RectTransform rect, Camera uiCamera)
     {
         Vector2 localMousePosition;
         RectTransformUtility.ScreenPointToLocalPointInRectangle(rect, Input.mousePosition, uiCamera, out localMousePosition);
